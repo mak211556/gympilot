@@ -2,243 +2,993 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>GymPilot</title>
+<title>GymPilot | Your Fitness Journey</title>
+
+<!-- Premium Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 
 <script src="https://cdn.tailwindcss.com"></script>
 
+
 <style>
 
-body {
-    background: #050816;
-    color: white;
-    font-family: Inter, Arial, sans-serif;
+*{
+    font-family:'Inter',sans-serif;
 }
 
-.glass {
-    background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255,255,255,0.1);
-}
 
-.gradient {
-    background: linear-gradient(90deg,#22c55e,#3b82f6);
-    -webkit-background-clip:text;
-    color:transparent;
-}
+body{
 
-input, select {
-    background:#111827;
-    border:1px solid #374151;
+    background:
+    radial-gradient(circle at top,#1e3a8a 0%,transparent 35%),
+    #050816;
+
     color:white;
-    padding:12px;
-    border-radius:12px;
+
+}
+
+
+
+.glass{
+
+    background:
+    rgba(255,255,255,0.07);
+
+    backdrop-filter:
+    blur(20px);
+
+    border:
+    1px solid rgba(255,255,255,0.12);
+
+}
+
+
+
+.gradient-text{
+
+    background:
+    linear-gradient(90deg,#22c55e,#38bdf8);
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+
+}
+
+
+
+.input{
+
     width:100%;
-    margin-bottom:15px;
-}
 
-button {
-    background:linear-gradient(90deg,#22c55e,#3b82f6);
-    padding:14px;
-    width:100%;
-    border-radius:12px;
-    font-weight:bold;
-    transition:0.3s;
-}
-
-button:hover {
-    transform:scale(1.03);
-}
-
-.stat {
     background:#111827;
-    padding:20px;
-    border-radius:15px;
+
+    border:1px solid #374151;
+
+    padding:14px;
+
+    border-radius:14px;
+
+    color:white;
+
+    margin-top:8px;
+
+    outline:none;
+
 }
+
+
+.input:focus{
+
+    border-color:#22c55e;
+
+}
+
+
+
+select{
+
+    appearance:auto;
+
+}
+
+
+
+.section-title{
+
+    font-size:24px;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.option-card{
+
+    background:#111827;
+
+    padding:14px;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    border:1px solid #374151;
+
+    transition:.3s;
+
+}
+
+
+.option-card:hover{
+
+    border-color:#22c55e;
+
+    transform:translateY(-2px);
+
+}
+
+
+
+.primary-btn{
+
+    background:
+    linear-gradient(90deg,#22c55e,#3b82f6);
+
+    padding:16px;
+
+    width:100%;
+
+    border-radius:15px;
+
+    font-weight:700;
+
+    margin-top:25px;
+
+    transition:.3s;
+
+}
+
+
+.primary-btn:hover{
+
+    transform:scale(1.02);
+
+}
+
+
 
 </style>
 
+
 </head>
+
 
 <body>
 
-<div class="max-w-6xl mx-auto p-6">
 
-<header class="text-center mb-12">
+<div class="max-w-5xl mx-auto p-6">
+
+
+<!-- HEADER -->
+
+
+<div class="text-center mt-10 mb-12">
+
 
 <h1 class="text-6xl font-black">
-<span class="gradient">GymPilot</span>
+
+<span class="gradient-text">
+
+GymPilot
+
+</span>
+
 </h1>
 
-<p class="text-gray-400 text-xl mt-4">
-Your personal fitness companion.
+
+<p class="text-gray-300 text-xl mt-5">
+
+Your personalised fitness journey starts here.
+
 </p>
 
-<p class="text-gray-500 mt-2">
-Plan workouts. Track progress. Become stronger.
+
+<p class="text-gray-500 mt-3">
+
+Complete your profile and GymPilot will design your training experience.
+
 </p>
 
-</header>
-
-<div class="grid md:grid-cols-3 gap-5 mb-10">
-
-<div class="stat">
-<h3 class="text-gray-400">Goal</h3>
-<p class="text-2xl font-bold">Improve Fitness</p>
-</div>
-
-<div class="stat">
-<h3 class="text-gray-400">Workouts</h3>
-<p class="text-2xl font-bold">0 Completed</p>
-</div>
-
-<div class="stat">
-<h3 class="text-gray-400">Progress</h3>
-<p class="text-2xl font-bold">Starting</p>
-</div>
 
 </div>
 
-<div class="grid md:grid-cols-2 gap-8">
 
-<div class="glass rounded-3xl p-8">
 
-<h2 class="text-3xl font-bold mb-6">
-Create Your Profile
+
+
+<!-- PROFILE FORM -->
+
+
+<div class="glass rounded-3xl p-8 mb-8">
+
+
+<h2 class="section-title">
+
+👤 Personal Information
+
 </h2>
 
-<input id="age" placeholder="Age">
 
-<input id="height" placeholder="Height (cm)">
 
-<input id="weight" placeholder="Weight (kg)">
+<label>
+Age
+</label>
 
-<select id="goal">
-<option>Build Muscle</option>
-<option>Lose Fat</option>
-<option>Improve Fitness</option>
+<input 
+class="input"
+id="age"
+type="number"
+placeholder="Example: 18"
+>
+
+
+
+<label>
+Sex
+</label>
+
+<select 
+class="input"
+id="sex">
+
+<option>Male</option>
+
+<option>Female</option>
+
+<option>Prefer not to say</option>
+
 </select>
 
-<button onclick="generatePlan(); goDashboard();">
-Generate My Plan
-</button>
+
+
+
+<label>
+Height (cm)
+</label>
+
+
+<input
+class="input"
+id="height"
+type="number"
+placeholder="Example: 180"
+>
+
+
+
+
+<label>
+Current Weight (kg)
+</label>
+
+
+<input
+class="input"
+id="weight"
+type="number"
+placeholder="Example: 75"
+>
+
+
+
+
+<label>
+Target Weight (kg)
+</label>
+
+
+<input
+class="input"
+id="targetWeight"
+type="number"
+placeholder="Example: 70"
+>
+
+
 
 </div>
 
-<div class="glass rounded-3xl p-8">
 
-<h2 class="text-3xl font-bold mb-6">
-Your Workout Plan
+
+
+
+
+
+<!-- FITNESS -->
+
+
+<div class="glass rounded-3xl p-8 mb-8">
+
+
+<h2 class="section-title">
+
+💪 Fitness Experience
+
 </h2>
 
-<div id="plan" class="text-gray-300">
-Complete your profile to generate your personalised plan.
-</div>
+
+
+<label>
+Current Fitness Level
+</label>
+
+
+<select
+class="input"
+id="fitnessLevel">
+
+
+<option>
+Complete Beginner
+</option>
+
+
+<option>
+Beginner
+</option>
+
+
+<option>
+Intermediate
+</option>
+
+
+<option>
+Advanced
+</option>
+
+
+</select>
+
+
+
+
+
+<label>
+Current Activity Level
+</label>
+
+
+<select
+class="input"
+id="activity">
+
+
+<option>
+Mostly inactive
+</option>
+
+
+<option>
+Light activity
+</option>
+
+
+<option>
+Active
+</option>
+
+
+<option>
+Very active
+</option>
+
+
+</select>
+
+
+
+<label>
+Cardio Experience
+</label>
+
+
+<select
+class="input"
+id="cardio">
+
+
+<option>
+Never do cardio
+</option>
+
+
+<option>
+Sometimes
+</option>
+
+
+<option>
+Regularly
+</option>
+
+
+</select>
+
 
 </div>
 
-</div>
+
+
+
+
+
+
+<!-- GOALS -->
+
+
+<div class="glass rounded-3xl p-8 mb-8">
+
+
+<h2 class="section-title">
+
+🎯 Fitness Goals
+
+</h2>
+
+
+
+<select
+class="input"
+id="goal">
+
+
+<option>
+Build Muscle
+</option>
+
+
+<option>
+Lose Fat
+</option>
+
+
+<option>
+Body Recomposition
+</option>
+
+
+<option>
+Improve Fitness
+</option>
+
+
+<option>
+Increase Strength
+</option>
+
+
+</select>
+
+
 
 </div>
+<!-- TRAINING PREFERENCES -->
+
+
+<div class="glass rounded-3xl p-8 mb-8">
+
+
+<h2 class="section-title">
+
+🏋️ Training Setup
+
+</h2>
+
+
+
+<label>
+Gym Access
+</label>
+
+
+<select
+class="input"
+id="gymAccess">
+
+
+<option>
+Full Commercial Gym
+</option>
+
+
+<option>
+Basic Gym
+</option>
+
+
+<option>
+Home Gym
+</option>
+
+
+<option>
+Dumbbells Only
+</option>
+
+
+<option>
+Bodyweight Only
+</option>
+
+
+</select>
+
+
+
+
+
+<label>
+Days You Can Train Per Week
+</label>
+
+
+<select
+class="input"
+id="days">
+
+
+<option>
+2 Days
+</option>
+
+
+<option>
+3 Days
+</option>
+
+
+<option>
+4 Days
+</option>
+
+
+<option>
+5 Days
+</option>
+
+
+<option>
+6+ Days
+</option>
+
+
+</select>
+
+
+
+
+
+<label>
+Average Workout Length
+</label>
+
+
+<select
+class="input"
+id="duration">
+
+
+<option>
+Under 30 minutes
+</option>
+
+
+<option>
+30-45 minutes
+</option>
+
+
+<option>
+45-60 minutes
+</option>
+
+
+<option>
+60+ minutes
+</option>
+
+
+</select>
+
+
+
+
+<label>
+Training Preference
+</label>
+
+
+<select
+class="input"
+id="trainingStyle">
+
+
+<option>
+Machines
+</option>
+
+
+<option>
+Free Weights
+</option>
+
+
+<option>
+Mixed Training
+</option>
+
+
+<option>
+No Preference
+</option>
+
+
+</select>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- LIFESTYLE -->
+
+
+<div class="glass rounded-3xl p-8 mb-8">
+
+
+<h2 class="section-title">
+
+🌱 Lifestyle
+
+</h2>
+
+
+
+
+<label>
+Average Sleep Per Night
+</label>
+
+
+<select
+class="input"
+id="sleep">
+
+
+<option>
+Less than 5 hours
+</option>
+
+
+<option>
+5-7 hours
+</option>
+
+
+<option>
+7-9 hours
+</option>
+
+
+<option>
+9+ hours
+</option>
+
+
+</select>
+
+
+
+
+
+<label>
+Stress Level
+</label>
+
+
+<select
+class="input"
+id="stress">
+
+
+<option>
+Low
+</option>
+
+
+<option>
+Moderate
+</option>
+
+
+<option>
+High
+</option>
+
+
+</select>
+
+
+
+
+<label>
+Daily Activity Outside Gym
+</label>
+
+
+<select
+class="input"
+id="dailyActivity">
+
+
+<option>
+Mostly Sitting
+</option>
+
+
+<option>
+Normal Daily Movement
+</option>
+
+
+<option>
+Very Active
+</option>
+
+
+</select>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- HEALTH -->
+
+
+<div class="glass rounded-3xl p-8 mb-8">
+
+
+<h2 class="section-title">
+
+❤️ Health & Safety
+
+</h2>
+
+
+
+<label>
+Any Injuries or Limitations?
+</label>
+
+
+<textarea
+
+class="input"
+
+id="injuries"
+
+rows="4"
+
+placeholder="Example: Knee problems, shoulder issues, none"
+
+></textarea>
+
+
+
+
+<label>
+Anything GymPilot Should Know?
+
+</label>
+
+
+<textarea
+
+class="input"
+
+id="notes"
+
+rows="4"
+
+placeholder="Training preferences, dislikes, goals..."
+
+></textarea>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<button 
+class="primary-btn"
+onclick="saveProfile()"
+>
+
+Create My GymPilot Profile
+
+</button>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
 
 <script>
 
-function generatePlan(){
 
-let age = document.getElementById("age").value;
-let height = document.getElementById("height").value;
-let weight = document.getElementById("weight").value;
-let goal = document.getElementById("goal").value;
+function saveProfile(){
 
-if(!age || !height || !weight){
-    alert("Please complete your profile");
-    return;
+
+
+let profile = {
+
+
+age:
+document.getElementById("age").value,
+
+
+sex:
+document.getElementById("sex").value,
+
+
+height:
+document.getElementById("height").value,
+
+
+weight:
+document.getElementById("weight").value,
+
+
+targetWeight:
+document.getElementById("targetWeight").value,
+
+
+fitnessLevel:
+document.getElementById("fitnessLevel").value,
+
+
+activity:
+document.getElementById("activity").value,
+
+
+cardio:
+document.getElementById("cardio").value,
+
+
+goal:
+document.getElementById("goal").value,
+
+
+gymAccess:
+document.getElementById("gymAccess").value,
+
+
+days:
+document.getElementById("days").value,
+
+
+duration:
+document.getElementById("duration").value,
+
+
+trainingStyle:
+document.getElementById("trainingStyle").value,
+
+
+sleep:
+document.getElementById("sleep").value,
+
+
+stress:
+document.getElementById("stress").value,
+
+
+dailyActivity:
+document.getElementById("dailyActivity").value,
+
+
+injuries:
+document.getElementById("injuries").value,
+
+
+notes:
+document.getElementById("notes").value
+
+
+};
+
+
+
+
+if(
+!profile.age ||
+!profile.height ||
+!profile.weight
+){
+
+alert("Please complete your basic information first.");
+
+return;
+
 }
 
-let bmi = (
-weight /
-((height/100)*(height/100))
-).toFixed(1);
 
-let workout = "";
 
-if(goal==="Build Muscle"){
-
-workout = `
-<h3 class="text-xl font-bold mb-3">
-Muscle Growth Plan
-</h3>
-
-<p>🔥 Monday - Chest & Triceps</p>
-<p>💪 Tuesday - Back & Biceps</p>
-<p>🦵 Thursday - Legs</p>
-<p>🏋️ Friday - Shoulders & Arms</p>
-`;
-
-}
-
-if(goal==="Lose Fat"){
-
-workout = `
-<h3 class="text-xl font-bold mb-3">
-Fat Loss Plan
-</h3>
-
-<p>🏃 Monday - Full Body</p>
-<p>🔥 Tuesday - Cardio</p>
-<p>🏋️ Wednesday - Strength</p>
-<p>🚴 Friday - Conditioning</p>
-`;
-
-}
-
-if(goal==="Improve Fitness"){
-
-workout = `
-<h3 class="text-xl font-bold mb-3">
-Fitness Plan
-</h3>
-
-<p>🏋️ Strength Training</p>
-<p>🏃 Cardio Sessions</p>
-<p>🧘 Mobility Work</p>
-<p>⚡ Weekly Progress Tests</p>
-`;
-
-}
-
-document.getElementById("plan").innerHTML = `
-
-<div class="mb-5">
-<p>Age: ${age}</p>
-<p>Height: ${height}cm</p>
-<p>Weight: ${weight}kg</p>
-<p>BMI: ${bmi}</p>
-</div>
-
-${workout}
-
-`;
 
 localStorage.setItem(
+
 "gympilot",
-JSON.stringify({
-age,
-height,
-weight,
-goal
-})
+
+JSON.stringify(profile)
+
 );
 
+
+
+
+window.location.href="dashboard.html";
+
+
+
 }
 
-function goDashboard(){
-    window.location.href = "dashboard.html";
-}
+
 
 </script>
 
+
+
 </body>
+
 </html>
