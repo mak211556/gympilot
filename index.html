@@ -17,13 +17,11 @@ body {
     font-family: Inter, Arial, sans-serif;
 }
 
-
 .glass {
     background: rgba(255,255,255,0.08);
     backdrop-filter: blur(15px);
     border: 1px solid rgba(255,255,255,0.1);
 }
-
 
 .gradient {
     background: linear-gradient(90deg,#22c55e,#3b82f6);
@@ -31,446 +29,216 @@ body {
     color:transparent;
 }
 
-
 input, select {
-
     background:#111827;
     border:1px solid #374151;
     color:white;
-
     padding:12px;
     border-radius:12px;
     width:100%;
     margin-bottom:15px;
-
 }
 
-
 button {
-
-    background:linear-gradient(
-        90deg,
-        #22c55e,
-        #3b82f6
-    );
-
+    background:linear-gradient(90deg,#22c55e,#3b82f6);
     padding:14px;
     width:100%;
     border-radius:12px;
-
     font-weight:bold;
-
     transition:0.3s;
-
 }
-
 
 button:hover {
-
     transform:scale(1.03);
-
 }
 
-
 .stat {
-
     background:#111827;
     padding:20px;
     border-radius:15px;
-
 }
-
 
 </style>
 
 </head>
 
-
-
 <body>
-
 
 <div class="max-w-6xl mx-auto p-6">
 
-
-<!-- HEADER -->
-
 <header class="text-center mb-12">
 
-
 <h1 class="text-6xl font-black">
-
-<span class="gradient">
-GymPilot
-</span>
-
+<span class="gradient">GymPilot</span>
 </h1>
 
-
 <p class="text-gray-400 text-xl mt-4">
-
 Your personal fitness companion.
-
 </p>
-
 
 <p class="text-gray-500 mt-2">
-
 Plan workouts. Track progress. Become stronger.
-
 </p>
-
 
 </header>
 
-
-
-
-
-<!-- STATS -->
-
 <div class="grid md:grid-cols-3 gap-5 mb-10">
 
+<div class="stat">
+<h3 class="text-gray-400">Goal</h3>
+<p class="text-2xl font-bold">Improve Fitness</p>
+</div>
 
 <div class="stat">
-
-<h3 class="text-gray-400">
-Goal
-</h3>
-
-<p class="text-2xl font-bold">
-Improve Fitness
-</p>
-
+<h3 class="text-gray-400">Workouts</h3>
+<p class="text-2xl font-bold">0 Completed</p>
 </div>
-
-
 
 <div class="stat">
-
-<h3 class="text-gray-400">
-Workouts
-</h3>
-
-<p class="text-2xl font-bold">
-0 Completed
-</p>
-
+<h3 class="text-gray-400">Progress</h3>
+<p class="text-2xl font-bold">Starting</p>
 </div>
 
-
-
-<div class="stat">
-
-<h3 class="text-gray-400">
-Progress
-</h3>
-
-<p class="text-2xl font-bold">
-Starting
-</p>
-
 </div>
-
-
-</div>
-
-
-
-
 
 <div class="grid md:grid-cols-2 gap-8">
 
-
-
-
-
-<!-- PROFILE -->
-
 <div class="glass rounded-3xl p-8">
 
-
 <h2 class="text-3xl font-bold mb-6">
-
 Create Your Profile
-
 </h2>
 
+<input id="age" placeholder="Age">
 
+<input id="height" placeholder="Height (cm)">
 
-<input 
-id="age"
-placeholder="Age"
->
-
-
-<input
-id="height"
-placeholder="Height (cm)"
->
-
-
-
-<input
-id="weight"
-placeholder="Weight (kg)"
->
-
-
-
+<input id="weight" placeholder="Weight (kg)">
 
 <select id="goal">
-
-
-<option>
-Build Muscle
-</option>
-
-
-<option>
-Lose Fat
-</option>
-
-
-<option>
-Improve Fitness
-</option>
-
-
+<option>Build Muscle</option>
+<option>Lose Fat</option>
+<option>Improve Fitness</option>
 </select>
 
-
-
-
-
-<button onclick="generatePlan()">
-
+<button onclick="generatePlan(); goDashboard();">
 Generate My Plan
-
 </button>
 
-
-
 </div>
-
-
-
-
-
-
-
-<!-- PLAN -->
 
 <div class="glass rounded-3xl p-8">
 
-
 <h2 class="text-3xl font-bold mb-6">
-
 Your Workout Plan
-
 </h2>
 
-
-
 <div id="plan" class="text-gray-300">
-
-
 Complete your profile to generate your personalised plan.
-
+</div>
 
 </div>
 
-
 </div>
 
-
-
-
-
 </div>
-
-
-
-</div>
-
-
-
-
-
-
 
 <script>
 
-
 function generatePlan(){
 
-
-let age =
-document.getElementById("age").value;
-
-
-let height =
-document.getElementById("height").value;
-
-
-let weight =
-document.getElementById("weight").value;
-
-
-let goal =
-document.getElementById("goal").value;
-
-
+let age = document.getElementById("age").value;
+let height = document.getElementById("height").value;
+let weight = document.getElementById("weight").value;
+let goal = document.getElementById("goal").value;
 
 if(!age || !height || !weight){
-
-alert("Please complete your profile");
-
-return;
-
+    alert("Please complete your profile");
+    return;
 }
 
-
-
-let bmi =
-(
+let bmi = (
 weight /
 ((height/100)*(height/100))
 ).toFixed(1);
 
-
-
-
-
-let workout="";
-
-
+let workout = "";
 
 if(goal==="Build Muscle"){
 
-workout=`
-
+workout = `
 <h3 class="text-xl font-bold mb-3">
 Muscle Growth Plan
 </h3>
 
 <p>🔥 Monday - Chest & Triceps</p>
-
 <p>💪 Tuesday - Back & Biceps</p>
-
 <p>🦵 Thursday - Legs</p>
-
 <p>🏋️ Friday - Shoulders & Arms</p>
-
 `;
 
 }
 
-
-
-
-
 if(goal==="Lose Fat"){
 
-workout=`
-
+workout = `
 <h3 class="text-xl font-bold mb-3">
 Fat Loss Plan
 </h3>
 
 <p>🏃 Monday - Full Body</p>
-
 <p>🔥 Tuesday - Cardio</p>
-
 <p>🏋️ Wednesday - Strength</p>
-
 <p>🚴 Friday - Conditioning</p>
-
 `;
 
 }
 
-
-
-
 if(goal==="Improve Fitness"){
 
-workout=`
-
+workout = `
 <h3 class="text-xl font-bold mb-3">
 Fitness Plan
 </h3>
 
-
 <p>🏋️ Strength Training</p>
-
 <p>🏃 Cardio Sessions</p>
-
 <p>🧘 Mobility Work</p>
-
 <p>⚡ Weekly Progress Tests</p>
-
 `;
 
 }
 
-
-
-
-
-document.getElementById("plan").innerHTML=`
+document.getElementById("plan").innerHTML = `
 
 <div class="mb-5">
-
-<p>
-Age: ${age}
-</p>
-
-<p>
-Height: ${height}cm
-</p>
-
-<p>
-Weight: ${weight}kg
-</p>
-
-<p>
-BMI: ${bmi}
-</p>
-
+<p>Age: ${age}</p>
+<p>Height: ${height}cm</p>
+<p>Weight: ${weight}kg</p>
+<p>BMI: ${bmi}</p>
 </div>
-
 
 ${workout}
 
-
 `;
 
-
-
 localStorage.setItem(
-
 "gympilot",
-
 JSON.stringify({
-
 age,
 height,
 weight,
 goal
-
 })
-
 );
-
 
 }
 
-
+function goDashboard(){
+    window.location.href = "dashboard.html";
+}
 
 </script>
 
-
 </body>
-
 </html>
