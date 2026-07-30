@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GymPilot Dashboard</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+
+body {
+background:#050816;
+color:white;
+font-family:Arial;
+}
+
+.card {
+
+background:#111827;
+border:1px solid #1f2937;
+border-radius:20px;
+padding:25px;
+
+}
+
+
+button {
+
+background:linear-gradient(90deg,#22c55e,#3b82f6);
+padding:12px 20px;
+border-radius:12px;
+font-weight:bold;
+
+}
+
+
+.exercise {
+
+background:#1f2937;
+padding:15px;
+border-radius:12px;
+margin-bottom:10px;
+
+}
+
+
+</style>
+
+
+</head>
+
+
+
+<body>
+
+
+<div class="max-w-6xl mx-auto p-6">
+
+
+<!-- HEADER -->
+
+<div class="flex justify-between items-center mb-10">
+
+
+<div>
+
+<h1 class="text-5xl font-black">
+
+<span class="text-green-400">
+Gym
+</span>
+Pilot
+
+</h1>
+
+<p class="text-gray-400">
+Your personal fitness dashboard
+</p>
+
+
+</div>
+
+
+<div>
+
+<button onclick="resetProgress()">
+
+Reset
+
+</button>
+
+</div>
+
+
+</div>
+
+
+
+
+
+<!-- STATS -->
+
+<div class="grid md:grid-cols-3 gap-5 mb-8">
+
+
+<div class="card">
+
+<p class="text-gray-400">
+Workouts Completed
+</p>
+
+<h2 id="completed"
+class="text-4xl font-bold">
+
+0
+
+</h2>
+
+</div>
+
+
+
+
+<div class="card">
+
+<p class="text-gray-400">
+Current Goal
+</p>
+
+<h2 id="goal"
+class="text-2xl font-bold">
+
+Loading...
+
+</h2>
+
+
+</div>
+
+
+
+
+<div class="card">
+
+<p class="text-gray-400">
+Fitness Level
+</p>
+
+<h2 class="text-2xl font-bold">
+
+Beginner
+
+</h2>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- WORKOUT -->
+
+
+<div class="card">
+
+
+<h2 class="text-3xl font-bold mb-5">
+
+Today's Workout
+
+</h2>
+
+
+
+<div class="exercise">
+
+<input type="checkbox"
+onclick="completeWorkout()">
+
+ Bench Press
+
+</div>
+
+
+
+<div class="exercise">
+
+<input type="checkbox"
+onclick="completeWorkout()">
+
+Lat Pulldown
+
+</div>
+
+
+
+<div class="exercise">
+
+<input type="checkbox"
+onclick="completeWorkout()">
+
+Squats
+
+</div>
+
+
+
+<div class="exercise">
+
+<input type="checkbox"
+onclick="completeWorkout()">
+
+Running / Cardio
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- PROGRESS -->
+
+<div class="card mt-8">
+
+
+<h2 class="text-3xl font-bold mb-5">
+
+Progress
+
+</h2>
+
+
+<div class="grid md:grid-cols-3 gap-5">
+
+
+<div>
+
+<p class="text-gray-400">
+Weight
+
+</p>
+
+<p class="text-2xl">
+Track weekly
+</p>
+
+</div>
+
+
+
+<div>
+
+<p class="text-gray-400">
+Strength
+
+</p>
+
+<p class="text-2xl">
+Improving
+</p>
+
+</div>
+
+
+
+
+<div>
+
+<p class="text-gray-400">
+Consistency
+
+</p>
+
+<p class="text-2xl">
+Building
+
+</p>
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+<script>
+
+
+let completed =
+localStorage.getItem("completed") || 0;
+
+
+document.getElementById("completed").innerHTML =
+completed;
+
+
+
+let profile =
+JSON.parse(localStorage.getItem("gympilot"));
+
+
+
+if(profile){
+
+document.getElementById("goal").innerHTML =
+profile.goal;
+
+}
+
+else{
+
+document.getElementById("goal").innerHTML =
+"Set Profile";
+
+}
+
+
+
+
+
+function completeWorkout(){
+
+
+completed++;
+
+
+localStorage.setItem(
+"completed",
+completed
+);
+
+
+document.getElementById("completed").innerHTML =
+completed;
+
+
+}
+
+
+
+
+function resetProgress(){
+
+localStorage.clear();
+
+location.reload();
+
+}
+
+
+
+</script>
+
+
+
+</body>
+
+</html>
