@@ -2029,18 +2029,13 @@ Create My GymPilot Profile 🚀
 <script>
 
 
-
 let profile = {
 
 equipment:[],
-
 sports:[],
-
 injuries:[]
 
-
 };
-
 
 
 
@@ -2062,7 +2057,6 @@ card.classList.remove("selected");
 });
 
 
-
 element.classList.add("selected");
 
 
@@ -2070,7 +2064,6 @@ profile[key]=value;
 
 
 }
-
 
 
 
@@ -2093,11 +2086,14 @@ profile[key]=[];
 
 
 
-
 if(element.classList.contains("selected")){
 
 
+if(!profile[key].includes(value)){
+
 profile[key].push(value);
+
+}
 
 
 }
@@ -2112,7 +2108,6 @@ item=>item!==value
 
 
 }
-
 
 
 }
@@ -2169,7 +2164,14 @@ document.getElementById("activity").value;
 
 
 
-if(!profile.name || !profile.age || !profile.goal){
+
+if(
+!profile.name ||
+!profile.age ||
+!profile.height ||
+!profile.weight ||
+!profile.goals
+){
 
 
 alert(
@@ -2184,6 +2186,9 @@ return;
 
 
 
+
+
+
 localStorage.setItem(
 
 "gympilot",
@@ -2194,18 +2199,13 @@ JSON.stringify(profile)
 
 
 
+
 window.location.href="dashboard.html";
+
 
 
 }
 
 
 
-
 </script>
-
-
-
-</body>
-
-</html>
