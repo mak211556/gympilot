@@ -4,64 +4,136 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>GymPilot</title>
 
-<title>GymPilot | Your Fitness System</title>
-
-
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
-
-
-<script src="https://cdn.tailwindcss.com"></script>
-
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 
 <style>
-
 
 *{
 box-sizing:border-box;
 }
 
 
-
 body{
 
 margin:0;
+height:100vh;
+overflow:hidden;
 
-min-height:100vh;
-
-background:
-
-radial-gradient(circle at top left,
-rgba(34,197,94,.25),
-transparent 35%),
-
-radial-gradient(circle at bottom right,
-rgba(59,130,246,.25),
-transparent 35%),
-
-#030712;
-
-
-color:white;
+background:#050505;
 
 font-family:'Manrope',sans-serif;
+
+color:white;
 
 }
 
 
 
-h1,h2,h3{
+/* BACKGROUND */
 
-font-family:'Sora',sans-serif;
+
+.background{
+
+position:fixed;
+
+inset:0;
+
+overflow:hidden;
+
+}
+
+
+
+.orb{
+
+position:absolute;
+
+border-radius:50%;
+
+filter:blur(120px);
+
+animation:breathe 8s infinite ease-in-out;
+
+}
+
+
+
+.orb1{
+
+width:500px;
+height:500px;
+
+background:#8FE3D6;
+
+opacity:.25;
+
+top:-200px;
+left:-150px;
+
+}
+
+
+
+.orb2{
+
+width:400px;
+height:400px;
+
+background:#E8DDCC;
+
+opacity:.15;
+
+right:-150px;
+
+bottom:-150px;
+
+animation-delay:2s;
+
+}
+
+
+
+
+
+@keyframes breathe{
+
+0%,100%{
+
+transform:scale(1);
+
+}
+
+
+50%{
+
+transform:scale(1.25);
+
+}
+
+}
+
+
+
+
+/* APP */
+
+
+.app{
+
+height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+padding:25px;
 
 }
 
@@ -69,47 +141,60 @@ font-family:'Sora',sans-serif;
 
 .container{
 
-max-width:900px;
+width:100%;
 
-margin:auto;
+max-width:500px;
 
-padding:35px 20px;
+text-align:center;
+
+animation:appear .7s ease;
+
+}
+
+
+
+
+@keyframes appear{
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
 
 }
 
 
 
 
-.glass{
-
-background:
-
-rgba(255,255,255,.08);
-
-border:
-
-1px solid rgba(255,255,255,.12);
-
-backdrop-filter:
-
-blur(25px);
-
-border-radius:30px;
-
-}
 
 
-
+/* TEXT */
 
 
 .logo{
 
-background:
+font-size:64px;
 
-linear-gradient(
+font-weight:800;
+
+letter-spacing:-4px;
+
+
+background:linear-gradient(
 90deg,
-#22c55e,
-#38bdf8
+#E8DDCC,
+#8FE3D6
 );
 
 
@@ -121,14 +206,152 @@ color:transparent;
 
 
 
+.title{
+
+font-size:38px;
+
+font-weight:800;
+
+line-height:1.15;
+
+margin-top:25px;
+
+}
 
 
-.option{
+
+.subtitle{
+
+font-size:18px;
+
+color:#999;
+
+margin-top:20px;
+
+line-height:1.5;
+
+}
+
+
+
+
+
+
+/* BUTTONS */
+
+
+.primary{
+
+
+margin-top:45px;
+
+width:100%;
+
+padding:20px;
+
+
+border-radius:999px;
+
+
+border:none;
+
+
+background:#8FE3D6;
+
+
+color:#050505;
+
+
+font-size:18px;
+
+
+font-weight:800;
+
+
+cursor:pointer;
+
+
+transition:.3s;
+
+
+box-shadow:
+
+0 0 40px rgba(143,227,214,.35);
+
+
+}
+
+
+
+.primary:hover{
+
+transform:scale(1.05);
+
+box-shadow:
+
+0 0 70px rgba(143,227,214,.6);
+
+}
+
+
+
+
+
+
+
+/* PROGRESS */
+
+
+.progress-container{
+
+position:absolute;
+
+top:25px;
+
+left:25px;
+
+right:25px;
+
+height:7px;
+
+background:#222;
+
+border-radius:20px;
+
+}
+
+
+
+.progress{
+
+height:100%;
+
+width:0%;
+
+background:#8FE3D6;
+
+border-radius:20px;
+
+transition:.5s;
+
+}
+
+
+
+
+
+/* CARDS */
+
+
+.card{
+
+
+margin-top:30px;
 
 
 background:
 
-rgba(17,24,39,.85);
+rgba(255,255,255,.08);
 
 
 border:
@@ -136,46 +359,14 @@ border:
 1px solid rgba(255,255,255,.12);
 
 
-border-radius:22px;
+
+backdrop-filter:blur(25px);
 
 
-padding:20px;
+padding:30px;
 
 
-cursor:pointer;
-
-
-transition:.25s;
-
-
-}
-
-
-
-.option:hover{
-
-
-transform:translateY(-3px);
-
-
-border-color:#22c55e;
-
-
-}
-
-
-
-.option.selected{
-
-
-border:
-
-2px solid #22c55e;
-
-
-background:
-
-rgba(34,197,94,.15);
+border-radius:35px;
 
 
 }
@@ -188,25 +379,25 @@ rgba(34,197,94,.15);
 
 width:100%;
 
-
-padding:15px;
-
-
-border-radius:15px;
+padding:18px;
 
 
-background:#111827;
+background:#111;
 
 
-border:
+border:none;
 
-1px solid #374151;
+
+border-radius:25px;
 
 
 color:white;
 
 
-margin-top:8px;
+font-size:17px;
+
+
+margin-bottom:15px;
 
 
 }
@@ -214,101 +405,53 @@ margin-top:8px;
 
 
 
-.input:focus{
+
+.option{
 
 
-outline:none;
+background:#111;
 
 
-border-color:#22c55e;
+border-radius:28px;
 
 
-}
+padding:22px;
 
 
+margin-top:15px;
 
 
-.primary{
-
-
-width:100%;
-
-
-padding:16px;
-
-
-border-radius:18px;
-
-
-background:
-
-linear-gradient(
-90deg,
-#22c55e,
-#3b82f6
-);
-
-
-font-weight:800;
+cursor:pointer;
 
 
 transition:.3s;
 
 
+font-size:18px;
+
+
 }
 
 
 
-
-.primary:hover{
-
+.option:hover{
 
 transform:scale(1.03);
 
-
 }
 
 
 
-
-.progress-bg{
-
-
-height:10px;
+.option.active{
 
 
-background:#1f2937;
+background:#8FE3D6;
 
 
-border-radius:20px;
+color:#050505;
 
 
-overflow:hidden;
-
-
-}
-
-
-
-.progress{
-
-
-height:100%;
-
-
-width:0%;
-
-
-background:
-
-linear-gradient(
-90deg,
-#22c55e,
-#38bdf8
-);
-
-
-transition:.4s;
+transform:scale(1.05);
 
 
 }
@@ -317,39 +460,26 @@ transition:.4s;
 
 
 
-.fade{
 
+.small{
 
-animation:fade .35s ease;
+color:#888;
 
+font-size:14px;
 
-}
-
-
-
-@keyframes fade{
-
-
-from{
-
-opacity:0;
-
-transform:translateY(15px);
+margin-top:15px;
 
 }
 
 
-to{
 
-opacity:1;
 
-transform:translateY(0);
 
-}
+.hidden{
 
+display:none;
 
 }
-
 
 
 
@@ -359,153 +489,70 @@ transform:translateY(0);
 </head>
 
 
-
-
 <body>
 
 
 
-<div class="container">
+<div class="background">
+
+<div class="orb orb1"></div>
+
+<div class="orb orb2"></div>
+
+</div>
 
 
 
 
+<div class="progress-container">
+
+<div class="progress" id="progress"></div>
+
+</div>
 
 
-<!-- HEADER -->
-
-<div class="text-center mb-10">
 
 
-<h1 class="text-6xl font-black logo">
+<div class="app">
+
+<div class="container" id="app">
+
+
+<!-- START SCREEN -->
+
+
+<div class="logo">
 
 GymPilot
 
-</h1>
+</div>
 
 
-<p class="text-xl text-gray-300 mt-4">
 
-Your personalised fitness system
+<div class="title">
 
-</p>
+Your body.<br>
+
+Your goals.<br>
+
+Your system.
+
+</div>
 
 
-<p class="text-gray-400 mt-2">
 
-Let's build your perfect training experience.
+<div class="subtitle">
 
-</p>
-
+A premium fitness experience designed around you.
 
 </div>
 
 
 
 
+<button class="primary" onclick="startApp()">
 
-
-
-
-<!-- PROGRESS -->
-
-<div class="glass p-6 mb-8">
-
-
-<div class="flex justify-between mb-3">
-
-
-<span>
-
-Profile Progress
-
-</span>
-
-
-
-<span id="progressText">
-
-0%
-
-</span>
-
-
-</div>
-
-
-
-
-<div class="progress-bg">
-
-
-<div id="progress"
-
-class="progress">
-
-</div>
-
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-<!-- APP WINDOW -->
-
-
-<div id="app"
-
-class="glass p-8 fade">
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<!-- NAVIGATION -->
-
-
-<div class="grid grid-cols-2 gap-4 mt-6">
-
-
-<button
-
-id="back"
-
-class="primary hidden"
-
-onclick="back()">
-
-← Back
-
-</button>
-
-
-
-
-<button
-
-id="next"
-
-class="primary"
-
-onclick="next()">
-
-Start →
+Begin Journey →
 
 </button>
 
@@ -513,107 +560,113 @@ Start →
 
 </div>
 
+</div>
 
 
 
 
 
+<script>
 
-</div><script>
+
+let step=0;
 
 
-const questions = [
+let profile={
+
+goals:[],
+equipment:[]
+
+};
+
+
+
+const screens=[
 
 
 {
-title:"Welcome to GymPilot 🚀",
-type:"info",
-content:`
 
-<h2 class="text-4xl font-bold mb-5">
-Your fitness journey starts here
-</h2>
+title:"Welcome 👋",
 
-<p class="text-gray-300 text-lg">
-GymPilot learns about you, your goals and your lifestyle to create a personalised training experience.
-</p>
+text:"Let's create your personalised fitness blueprint.",
 
-
-<div class="grid md:grid-cols-3 gap-4 mt-8">
-
-<div class="option">
-💪
-<h3 class="font-bold mt-2">Training</h3>
-<p class="text-gray-400">Personal workouts</p>
-</div>
-
-
-<div class="option">
-📈
-<h3 class="font-bold mt-2">Progress</h3>
-<p class="text-gray-400">Track improvement</p>
-</div>
-
-
-<div class="option">
-🔥
-<h3 class="font-bold mt-2">Guidance</h3>
-<p class="text-gray-400">Built around you</p>
-</div>
-
-</div>
-
-`
+type:"welcome"
 
 },
 
 
-
-
 {
-title:"Personal Details",
-type:"form",
-content:`
 
-<h2 class="text-3xl font-bold mb-5">
-👤 About You
-</h2>
+title:"What should we call you?",
 
-
-<input id="name" class="input" placeholder="Name">
-
-
-<input id="age" class="input" placeholder="Age" type="number">
-
-
-<input id="height" class="input" placeholder="Height (cm)" type="number">
-
-
-<input id="weight" class="input" placeholder="Weight (kg)" type="number">
-
-
-<input id="target" class="input" placeholder="Target weight (kg)" type="number">
-
-`
+type:"name"
 
 },
 
 
+{
 
+title:"How old are you?",
 
+type:"age"
+
+},
 
 
 {
-title:"Fitness Level",
-type:"single",
-key:"fitness",
+
+title:"Your height?",
+
+type:"height"
+
+},
+
+
+{
+
+title:"Your current weight?",
+
+type:"weight"
+
+},
+
+
+{
+
+title:"What are your goals?",
+
+type:"goals",
+
+options:[
+
+"💪 Build Muscle",
+
+"🔥 Lose Fat",
+
+"⚡ Become Stronger",
+
+"🏃 Improve Fitness",
+
+"🤸 Improve Mobility"
+
+]
+
+},
+
+
+{
+
+title:"Your fitness level?",
+
+type:"level",
+
 options:[
 
 "🌱 Beginner",
 
 "⚡ Intermediate",
 
-"🔥 Advanced",
+🔥 Advanced",
 
 "🏆 Athlete"
 
@@ -622,42 +675,12 @@ options:[
 },
 
 
-
-
-
-
 {
-title:"Your Goals",
-type:"multi",
-key:"goals",
-options:[
 
-"💪 Build Muscle",
+title:"Training style?",
 
-"🔥 Lose Fat",
+type:"style",
 
-"🏋️ Get Stronger",
-
-"🏃 Improve Fitness",
-
-"🤸 Improve Mobility",
-
-"⚡ Sports Performance"
-
-]
-
-},
-
-
-
-
-
-
-
-{
-title:"Training Style",
-type:"single",
-key:"style",
 options:[
 
 "💪 Bodybuilding",
@@ -673,317 +696,152 @@ options:[
 },
 
 
-
-
-
-
-
 {
-title:"Gym Setup",
-type:"single",
-key:"gym",
+
+title:"Where do you train?",
+
+type:"gym",
+
 options:[
 
 "🏢 Commercial Gym",
 
 "🏠 Home Gym",
 
-"💪 Dumbbells Only",
+"💪 Minimal Equipment",
 
-"🤸 Bodyweight"
-
-]
-
-},
-
-
-
-
-
-
-
-{
-title:"Equipment",
-type:"multi",
-key:"equipment",
-options:[
-
-"🏋️ Barbell",
-
-"💪 Dumbbells",
-
-"⚙️ Machines",
-
-"🔗 Cable Machine",
-
-"🦵 Squat Rack",
-
-"🔥 Leg Press",
-
-"🏃 Cardio Equipment",
-
-"🟢 Resistance Bands"
+"🌱 No Equipment"
 
 ]
-
-},
-
-
-
-
-
-
-
-{
-title:"Training Schedule",
-type:"form",
-content:`
-
-<h2 class="text-3xl font-bold mb-5">
-📅 Your Schedule
-</h2>
-
-
-<select id="days" class="input">
-
-<option>2 Days per week</option>
-<option>3 Days per week</option>
-<option>4 Days per week</option>
-<option>5 Days per week</option>
-<option>6+ Days per week</option>
-
-</select>
-
-
-
-<select id="time" class="input">
-
-<option>30 Minutes</option>
-<option>45 Minutes</option>
-<option>60 Minutes</option>
-<option>90+ Minutes</option>
-
-</select>
-
-`
-
-},
-
-
-
-
-
-
-
-{
-title:"Warm Up & Mobility",
-type:"single",
-key:"mobility",
-options:[
-
-"⚡ Quick Warm Up",
-
-"🔥 Full Warm Up",
-
-"🤸 Mobility Focus",
-
-"🏆 Performance"
-
-]
-
-},
-
-
-
-
-
-
-
-{
-title:"Lifestyle",
-type:"form",
-content:`
-
-<h2 class="text-3xl font-bold mb-5">
-🌙 Lifestyle
-</h2>
-
-
-<select id="sleep" class="input">
-
-<option>Less than 5 hours sleep</option>
-<option>5-7 hours sleep</option>
-<option>7-9 hours sleep</option>
-<option>9+ hours sleep</option>
-
-</select>
-
-
-<select id="activity" class="input">
-
-<option>Low activity</option>
-<option>Average activity</option>
-<option>High activity</option>
-
-</select>
-
-`
-
-},
-
-
-
-
-
-
-
-{
-title:"Nutrition",
-type:"single",
-key:"food",
-options:[
-
-"🍽️ No Tracking",
-
-"🥩 High Protein",
-
-"📊 Calorie Tracking",
-
-"🥗 Healthy Eating"
-
-]
-
-},
-
-
-
-
-
-
-{
-title:"Motivation",
-type:"single",
-key:"motivation",
-options:[
-
-"⭐ Confidence",
-
-"❤️ Health",
-
-"⚡ Discipline",
-
-"🏆 Performance"
-
-]
-
-},
-
-
-
-
-
-
-{
-title:"Complete 🎉",
-type:"finish",
-content:`
-
-<h2 class="text-4xl font-bold">
-Your GymPilot profile is ready
-</h2>
-
-
-<p class="text-gray-300 mt-4">
-Creating your personalised dashboard...
-</p>
-
-`
 
 }
-
 
 
 ];
 
 
 
+function startApp(){
 
+step=0;
 
-let current = 0;
-
-
-let profile = {
-
-goals:[],
-
-equipment:[]
-
-};
-
-
-
-
-
-
-
-function display(){
-
-
-
-let q = questions[current];
-
-
-let html = `
-
-<div class="fade">
-
-
-<h2 class="text-3xl font-bold mb-6">
-
-${q.title}
-
-</h2>
-
-`;
-
-
-
-
-
-if(q.content){
-
-html += q.content;
+render();
 
 }
 
 
 
+function render(){
+
+let app=document.getElementById("app");
+
+let data=screens[step];
+
+
+document.getElementById("progress").style.width=
+
+((step)/(screens.length))*100+"%";
 
 
 
+let html=`
 
-if(q.type==="single" || q.type==="multi"){
+<div class="title">
 
+${data.title}
 
-
-html+=`
-
-<div class="grid md:grid-cols-2 gap-5">
+</div>
 
 `;
 
 
 
-q.options.forEach(option=>{
+if(data.text){
+
+html+=`
+
+<div class="subtitle">
+
+${data.text}
+
+</div>
+
+`;
+
+}
+
+
+
+if(data.type==="name"||
+data.type==="age"||
+data.type==="height"||
+data.type==="weight"){
+
+
+html+=`
+
+<div class="card">
+
+<input class="input" id="answer">
+
+<button class="primary" onclick="nextInput('${data.type}')">
+
+Continue →
+
+</button>
+
+</div>
+
+`;
+
+}
+
+
+
+if(data.type==="welcome"){
+
+
+html+=`
+
+<div class="card">
+
+<div class="subtitle">
+
+This takes around 2 minutes.
+
+We'll build your personal fitness system.
+
+</div>
+
+
+<button class="primary" onclick="next()">
+
+Continue →
+
+</button>
+
+
+</div>
+
+`;
+
+}
+
+
+
+if(data.options){
+
+
+data.options.forEach(x=>{
 
 
 html+=`
 
 <div class="option"
 
-onclick="choose(this,'${q.key}','${option}','${q.type}')">
+onclick="selectOption(this,'${data.type}','${x}')">
 
-${option}
+${x}
 
 </div>
 
@@ -994,268 +852,167 @@ ${option}
 
 
 
-html+=`</div>`;
+html+=`
 
+<button class="primary" onclick="next()">
 
+Continue →
 
-}
+</button>
 
-
-
-html+=`</div>`;
-
-
-document.getElementById("app").innerHTML=html;
-
-
-
-document.getElementById("back").classList.toggle(
-
-"hidden",
-
-current===0
-
-);
-
-
-
-document.getElementById("next").innerHTML=
-
-current===questions.length-1
-
-?
-
-"Create Profile 🚀"
-
-:
-
-"Continue →";
-
-
-
-progress();
-
-
+`;
 
 }
 
 
 
-
-
-
-
-
-
-function choose(el,key,value,type){
-
-
-
-if(type==="single"){
-
-
-el.parentElement
-
-.querySelectorAll(".option")
-
-.forEach(x=>x.classList.remove("selected"));
-
-
-
-el.classList.add("selected");
-
-
-profile[key]=value;
+app.innerHTML=html;
 
 
 }
 
 
-
-if(type==="multi"){
-
-
-el.classList.toggle("selected");
-
-
-
-if(!profile[key]) profile[key]=[];
-
-
-
-if(el.classList.contains("selected")){
-
-
-profile[key].push(value);
-
-
-}
-
-else{
-
-
-profile[key]=profile[key].filter(x=>x!==value);
-
-
-}
-
-
-
-}
-
-
-
-}
-
-
-
-
-
-
-
-
-
-function save(){
-
-
-
-[
-"name",
-"age",
-"height",
-"weight",
-"target"
-
-].forEach(id=>{
-
-
-let x=document.getElementById(id);
-
-
-if(x){
-
-profile[id]=x.value;
-
-}
-
-
-});
-
-
-
-
-[
-"days",
-"time",
-"sleep",
-"activity"
-
-].forEach(id=>{
-
-
-let x=document.getElementById(id);
-
-
-if(x){
-
-profile[id]=x.value;
-
-}
-
-
-});
-
-
-
-}
-
-
-
-
-
-
-
+<script>
 
 
 function next(){
 
 
-save();
+if(step < screens.length-1){
 
 
+step++;
 
-if(current===questions.length-1){
+
+render();
+
+
+}
+
+
+else{
 
 
 finish();
 
 
+}
+
+
+
+}
+
+
+
+
+
+function nextInput(type){
+
+
+let value=document.getElementById("answer").value;
+
+
+
+if(!value){
+
+alert("Please enter your details");
+
 return;
 
+}
+
+
+
+if(type==="name"){
+
+profile.name=value;
+
+}
+
+
+if(type==="age"){
+
+profile.age=value;
+
+}
+
+
+if(type==="height"){
+
+profile.height=value;
+
+}
+
+
+if(type==="weight"){
+
+profile.weight=value;
 
 }
 
 
 
-current++;
+next();
 
 
-display();
+
+}
+
+
+
+
+
+
+
+
+function selectOption(element,type,value){
+
+
+
+document
+.querySelectorAll(".option")
+.forEach(item=>{
+
+
+item.classList.remove("active");
+
+
+});
+
+
+
+element.classList.add("active");
+
+
+
+if(type==="goals"){
+
+
+if(!profile.goals.includes(value)){
+
+
+profile.goals.push(value);
+
+
+}
 
 
 }
 
 
 
+else{
 
 
-
-function back(){
-
-
-
-if(current>0){
-
-current--;
-
-display();
-
-}
+profile[type]=value;
 
 
 }
 
 
 
-
-
-
-
-function progress(){
-
-
-
-let percent=Math.round(
-
-(current/(questions.length-1))*100
-
-);
-
-
-
-document.getElementById("progress").style.width=
-
-percent+"%";
-
-
-
-document.getElementById("progressText").innerHTML=
-
-percent+"%";
-
-
-
 }
+
 
 
 
@@ -1265,35 +1022,6 @@ percent+"%";
 
 
 function finish(){
-
-
-
-save();
-
-
-
-if(
-
-!profile.name ||
-
-!profile.age ||
-
-!profile.height ||
-
-!profile.weight ||
-
-profile.goals.length===0
-
-){
-
-
-alert("Please complete your main profile information first.");
-
-
-return;
-
-
-}
 
 
 
@@ -1307,29 +1035,104 @@ JSON.stringify(profile)
 
 
 
-document.getElementById("app").innerHTML=`
+let app=document.getElementById("app");
 
-<h2 class="text-4xl font-bold text-center">
 
-Profile Created 🎉
 
-</h2>
+document.getElementById("progress").style.width="100%";
 
-<p class="text-center text-gray-300 mt-4">
 
-Welcome ${profile.name}
+
+app.innerHTML=`
+
+<div class="logo">
+
+GymPilot
+
+</div>
+
+
+
+<div class="title">
+
+Your profile is ready 🎉
+
+</div>
+
+
+<div class="card">
+
+
+<div class="subtitle">
+
+Welcome ${profile.name || "there"}.
+
+</div>
+
+
+
+<br>
+
+
+
+<p>
+
+Goal:
+
+<br>
+
+<b>
+
+${profile.goals.join(", ") || "Fitness"}
+
+</b>
 
 </p>
 
+
+
+<p>
+
+Level:
+
+<br>
+
+<b>
+
+${profile.level || "Not selected"}
+
+</b>
+
+</p>
+
+
+
+<p>
+
+Training:
+
+<br>
+
+<b>
+
+${profile.style || "Not selected"}
+
+</b>
+
+</p>
+
+
+
+<button class="primary" onclick="goDashboard()">
+
+Enter GymPilot →
+
+</button>
+
+
+</div>
+
 `;
-
-
-
-setTimeout(()=>{
-
-window.location.href="dashboard.html";
-
-},2500);
 
 
 
@@ -1340,7 +1143,20 @@ window.location.href="dashboard.html";
 
 
 
-display();
+
+function goDashboard(){
+
+
+
+window.location.href="dashboard.html";
+
+
+}
+
+
+
+
+render();
 
 
 
