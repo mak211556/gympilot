@@ -4,34 +4,70 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>GymPilot | Your Fitness Journey</title>
 
-<!-- Premium Font -->
+<title>GymPilot | Build Your Fitness Blueprint</title>
+
+
+<!-- Fonts -->
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
+
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+
 
 
 <script src="https://cdn.tailwindcss.com"></script>
 
 
+
 <style>
 
+
 *{
-    font-family:'Inter',sans-serif;
+
+box-sizing:border-box;
+
 }
+
 
 
 body{
 
-    background:
-    radial-gradient(circle at top,#1e3a8a 0%,transparent 35%),
-    #050816;
+margin:0;
 
-    color:white;
+background:
+
+radial-gradient(
+circle at top,
+rgba(34,197,94,0.25),
+transparent 30%
+),
+
+radial-gradient(
+circle at right,
+rgba(59,130,246,0.20),
+transparent 35%
+),
+
+#050816;
+
+
+color:white;
+
+font-family:'Manrope',sans-serif;
+
+}
+
+
+
+h1,h2,h3{
+
+font-family:'Sora',sans-serif;
 
 }
 
@@ -39,27 +75,98 @@ body{
 
 .glass{
 
-    background:
-    rgba(255,255,255,0.07);
+background:
 
-    backdrop-filter:
-    blur(20px);
+rgba(255,255,255,0.08);
 
-    border:
-    1px solid rgba(255,255,255,0.12);
+
+backdrop-filter:
+
+blur(20px);
+
+
+border:
+
+1px solid rgba(255,255,255,0.12);
+
 
 }
 
 
 
-.gradient-text{
+.gradient{
 
-    background:
-    linear-gradient(90deg,#22c55e,#38bdf8);
+background:
 
-    -webkit-background-clip:text;
+linear-gradient(
+90deg,
+#22c55e,
+#38bdf8
+);
 
-    color:transparent;
+
+-webkit-background-clip:text;
+
+color:transparent;
+
+}
+
+
+
+.card-option{
+
+
+background:
+
+rgba(17,24,39,0.8);
+
+
+border:
+
+1px solid rgba(255,255,255,0.12);
+
+
+border-radius:20px;
+
+
+padding:20px;
+
+
+cursor:pointer;
+
+
+transition:.25s;
+
+
+}
+
+
+
+.card-option:hover{
+
+
+transform:translateY(-3px);
+
+
+border-color:#22c55e;
+
+
+}
+
+
+
+.card-option.selected{
+
+
+border:
+
+2px solid #22c55e;
+
+
+background:
+
+rgba(34,197,94,0.15);
+
 
 }
 
@@ -67,103 +174,132 @@ body{
 
 .input{
 
-    width:100%;
 
-    background:#111827;
+width:100%;
 
-    border:1px solid #374151;
 
-    padding:14px;
+padding:15px;
 
-    border-radius:14px;
 
-    color:white;
+border-radius:15px;
 
-    margin-top:8px;
 
-    outline:none;
+background:#111827;
+
+
+border:
+
+1px solid #374151;
+
+
+color:white;
+
+
+outline:none;
+
 
 }
+
 
 
 .input:focus{
 
-    border-color:#22c55e;
+
+border-color:#22c55e;
+
 
 }
 
 
 
-select{
+.button{
 
-    appearance:auto;
+
+width:100%;
+
+
+padding:16px;
+
+
+border-radius:18px;
+
+
+font-weight:800;
+
+
+background:
+
+linear-gradient(
+90deg,
+#22c55e,
+#3b82f6
+);
+
+
+transition:.3s;
+
 
 }
 
 
 
-.section-title{
+.button:hover{
 
-    font-size:24px;
 
-    font-weight:700;
+transform:scale(1.02);
 
-    margin-bottom:20px;
 
 }
 
 
 
-.option-card{
-
-    background:#111827;
-
-    padding:14px;
-
-    border-radius:14px;
-
-    cursor:pointer;
-
-    border:1px solid #374151;
-
-    transition:.3s;
-
-}
+.progress{
 
 
-.option-card:hover{
+height:8px;
 
-    border-color:#22c55e;
 
-    transform:translateY(-2px);
+background:#1f2937;
+
+
+border-radius:20px;
+
+
+overflow:hidden;
+
 
 }
 
 
 
-.primary-btn{
+.progress-bar{
 
-    background:
-    linear-gradient(90deg,#22c55e,#3b82f6);
 
-    padding:16px;
+height:100%;
 
-    width:100%;
 
-    border-radius:15px;
+width:10%;
 
-    font-weight:700;
 
-    margin-top:25px;
+background:
 
-    transition:.3s;
+linear-gradient(
+90deg,
+#22c55e,
+#3b82f6
+);
+
+
+transition:.4s;
+
 
 }
 
 
-.primary-btn:hover{
 
-    transform:scale(1.02);
+.hidden{
+
+display:none;
 
 }
 
@@ -175,21 +311,23 @@ select{
 </head>
 
 
+
 <body>
 
 
-<div class="max-w-5xl mx-auto p-6">
+<div class="max-w-5xl mx-auto px-6 py-10">
+
 
 
 <!-- HEADER -->
 
 
-<div class="text-center mt-10 mb-12">
+<div class="text-center mb-10">
 
 
 <h1 class="text-6xl font-black">
 
-<span class="gradient-text">
+<span class="gradient">
 
 GymPilot
 
@@ -198,16 +336,18 @@ GymPilot
 </h1>
 
 
-<p class="text-gray-300 text-xl mt-5">
 
-Your personalised fitness journey starts here.
+<p class="text-2xl mt-5 text-gray-200">
+
+Build your personal fitness blueprint
 
 </p>
 
 
-<p class="text-gray-500 mt-3">
 
-Complete your profile and GymPilot will design your training experience.
+<p class="text-gray-400 mt-3">
+
+GymPilot learns about you and creates your personalised training experience.
 
 </p>
 
@@ -217,95 +357,239 @@ Complete your profile and GymPilot will design your training experience.
 
 
 
-
-<!-- PROFILE FORM -->
-
-
-<div class="glass rounded-3xl p-8 mb-8">
+<!-- PROGRESS -->
 
 
-<h2 class="section-title">
+<div class="mb-10">
 
-👤 Personal Information
+
+<div class="flex justify-between text-sm text-gray-400 mb-2">
+
+<span>
+Profile Setup
+</span>
+
+
+<span id="stepText">
+
+Step 1 of 10
+
+</span>
+
+
+</div>
+
+
+
+<div class="progress">
+
+
+<div class="progress-bar" id="progressBar"></div>
+
+
+</div>
+
+
+</div><!-- ========================= -->
+<!-- PART 2 START -->
+<!-- ========================= -->
+
+
+<div id="onboardingContainer">
+
+
+
+<!-- STEP 1 -->
+
+<section class="glass rounded-3xl p-8 mb-8">
+
+
+<h2 class="text-3xl font-bold mb-3">
+
+👋 Welcome to GymPilot
+
+</h2>
+
+
+<p class="text-gray-400 mb-6">
+
+Before creating your fitness system, we need to understand you.
+
+</p>
+
+
+
+<div class="grid md:grid-cols-2 gap-5">
+
+
+<div class="card-option"
+onclick="selectCard(this,'commitment')">
+
+
+<h3 class="text-xl font-bold">
+
+🔥 Serious Progress
+
+</h3>
+
+
+<p class="text-gray-400 mt-2">
+
+I want structured training and real improvement.
+
+</p>
+
+
+</div>
+
+
+
+
+<div class="card-option"
+onclick="selectCard(this,'commitment')">
+
+
+<h3 class="text-xl font-bold">
+
+⚖️ Balanced Fitness
+
+</h3>
+
+
+<p class="text-gray-400 mt-2">
+
+I want fitness to fit around my lifestyle.
+
+</p>
+
+
+</div>
+
+
+
+
+<div class="card-option"
+onclick="selectCard(this,'commitment')">
+
+
+<h3 class="text-xl font-bold">
+
+🌱 Building Habits
+
+</h3>
+
+
+<p class="text-gray-400 mt-2">
+
+I want consistency and a healthier routine.
+
+</p>
+
+
+</div>
+
+
+
+
+<div class="card-option"
+onclick="selectCard(this,'commitment')">
+
+
+<h3 class="text-xl font-bold">
+
+🏆 Maximum Performance
+
+</h3>
+
+
+<p class="text-gray-400 mt-2">
+
+I want the best results possible.
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- PERSONAL INFORMATION -->
+
+
+<section class="glass rounded-3xl p-8 mb-8">
+
+
+<h2 class="text-3xl font-bold mb-6">
+
+👤 About You
 
 </h2>
 
 
 
-<label>
+
+<div class="grid md:grid-cols-2 gap-5">
+
+
+
+<div>
+
+<label class="text-gray-300">
+
+Name
+
+</label>
+
+
+<input
+
+id="name"
+
+class="input mt-2"
+
+placeholder="What should GymPilot call you?"
+
+>
+
+</div>
+
+
+
+
+<div>
+
+
+<label class="text-gray-300">
+
 Age
+
 </label>
 
-<input 
-class="input"
+
+<input
+
 id="age"
+
 type="number"
-placeholder="Example: 18"
+
+class="input mt-2"
+
+placeholder="Example: 17"
+
 >
-
-
-
-<label>
-Sex
-</label>
-
-<select 
-class="input"
-id="sex">
-
-<option>Male</option>
-
-<option>Female</option>
-
-<option>Prefer not to say</option>
-
-</select>
-
-
-
-
-<label>
-Height (cm)
-</label>
-
-
-<input
-class="input"
-id="height"
-type="number"
-placeholder="Example: 180"
->
-
-
-
-
-<label>
-Current Weight (kg)
-</label>
-
-
-<input
-class="input"
-id="weight"
-type="number"
-placeholder="Example: 75"
->
-
-
-
-
-<label>
-Target Weight (kg)
-</label>
-
-
-<input
-class="input"
-id="targetWeight"
-type="number"
-placeholder="Example: 70"
->
-
 
 
 </div>
@@ -314,121 +598,234 @@ placeholder="Example: 70"
 
 
 
+<div>
 
 
-<!-- FITNESS -->
+<label class="text-gray-300">
+
+Height (cm)
+
+</label>
 
 
-<div class="glass rounded-3xl p-8 mb-8">
+<input
+
+id="height"
+
+type="number"
+
+class="input mt-2"
+
+placeholder="Example: 180"
+
+>
 
 
-<h2 class="section-title">
+</div>
 
-💪 Fitness Experience
+
+
+
+
+<div>
+
+
+<label class="text-gray-300">
+
+Current Weight (kg)
+
+</label>
+
+
+<input
+
+id="weight"
+
+type="number"
+
+class="input mt-2"
+
+placeholder="Example: 75"
+
+>
+
+
+</div>
+
+
+
+
+<div>
+
+
+<label class="text-gray-300">
+
+Target Weight (kg)
+
+</label>
+
+
+<input
+
+id="targetWeight"
+
+type="number"
+
+class="input mt-2"
+
+placeholder="Example: 70"
+
+>
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+<!-- FITNESS LEVEL -->
+
+
+<section class="glass rounded-3xl p-8 mb-8">
+
+
+<h2 class="text-3xl font-bold mb-3">
+
+💪 Training Experience
 
 </h2>
 
 
+<p class="text-gray-400 mb-6">
 
-<label>
-Current Fitness Level
-</label>
+How experienced are you?
 
-
-<select
-class="input"
-id="fitnessLevel">
-
-
-<option>
-Complete Beginner
-</option>
-
-
-<option>
-Beginner
-</option>
-
-
-<option>
-Intermediate
-</option>
-
-
-<option>
-Advanced
-</option>
-
-
-</select>
+</p>
 
 
 
 
-
-<label>
-Current Activity Level
-</label>
+<div class="grid md:grid-cols-2 gap-5">
 
 
-<select
-class="input"
-id="activity">
+<div class="card-option"
+
+onclick="selectCard(this,'fitnessLevel','Complete Beginner')">
 
 
-<option>
-Mostly inactive
-</option>
+<h3 class="font-bold text-xl">
+
+🌱 Complete Beginner
+
+</h3>
 
 
-<option>
-Light activity
-</option>
+<p class="text-gray-400">
 
+I am new to fitness.
 
-<option>
-Active
-</option>
-
-
-<option>
-Very active
-</option>
-
-
-</select>
-
-
-
-<label>
-Cardio Experience
-</label>
-
-
-<select
-class="input"
-id="cardio">
-
-
-<option>
-Never do cardio
-</option>
-
-
-<option>
-Sometimes
-</option>
-
-
-<option>
-Regularly
-</option>
-
-
-</select>
+</p>
 
 
 </div>
+
+
+
+
+
+<div class="card-option"
+
+onclick="selectCard(this,'fitnessLevel','Beginner')">
+
+
+<h3 class="font-bold text-xl">
+
+⚡ Beginner
+
+</h3>
+
+
+<p class="text-gray-400">
+
+I know basic exercises.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="card-option"
+
+onclick="selectCard(this,'fitnessLevel','Intermediate')">
+
+
+<h3 class="font-bold text-xl">
+
+🔥 Intermediate
+
+</h3>
+
+
+<p class="text-gray-400">
+
+I train consistently.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="card-option"
+
+onclick="selectCard(this,'fitnessLevel','Advanced')">
+
+
+<h3 class="font-bold text-xl">
+
+🏆 Advanced
+
+</h3>
+
+
+<p class="text-gray-400">
+
+I understand training.
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+
+</section>
+
+
 
 
 
@@ -439,218 +836,815 @@ Regularly
 <!-- GOALS -->
 
 
-<div class="glass rounded-3xl p-8 mb-8">
+<section class="glass rounded-3xl p-8 mb-8">
 
 
-<h2 class="section-title">
+<h2 class="text-3xl font-bold mb-3">
 
-🎯 Fitness Goals
+🎯 Your Goals
+
+</h2>
+
+
+<p class="text-gray-400 mb-6">
+
+Choose your main fitness goals.
+
+</p>
+
+
+
+
+
+<div class="grid md:grid-cols-2 gap-5">
+
+
+
+<div class="card-option"
+
+onclick="selectCard(this,'goals','Build Muscle')">
+
+
+<h3 class="font-bold text-xl">
+
+💪 Build Muscle
+
+</h3>
+
+
+<p class="text-gray-400">
+
+Increase size and strength.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="card-option"
+
+onclick="selectCard(this,'goals','Lose Fat')">
+
+
+<h3 class="font-bold text-xl">
+
+🔥 Lose Fat
+
+</h3>
+
+
+<p class="text-gray-400">
+
+Become leaner and fitter.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="card-option"
+
+onclick="selectCard(this,'goals','Body Recomposition')">
+
+
+<h3 class="font-bold text-xl">
+
+⚖️ Recomposition
+
+</h3>
+
+
+<p class="text-gray-400">
+
+Build muscle while losing fat.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="card-option"
+
+onclick="selectCard(this,'goals','Improve Fitness')">
+
+
+<h3 class="font-bold text-xl">
+
+🏃 Improve Fitness
+
+</h3>
+
+
+<p class="text-gray-400">
+
+Improve health and endurance.
+
+</p>
+
+
+</div>
+
+
+
+
+<div class="card-option"
+
+onclick="selectCard(this,'goals','Increase Strength')">
+
+
+<h3 class="font-bold text-xl">
+
+🏋️ Increase Strength
+
+</h3>
+
+
+<p class="text-gray-400">
+
+Focus on lifting heavier.
+
+</p>
+
+
+</div>
+
+
+
+
+<div class="card-option"
+
+onclick="selectCard(this,'goals','Athletic Performance')">
+
+
+<h3 class="font-bold text-xl">
+
+⚡ Athletic Performance
+
+</h3>
+
+
+<p class="text-gray-400">
+
+Speed, power and movement.
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+</section><!-- ========================= -->
+<!-- PART 3 START -->
+<!-- ========================= -->
+
+
+
+
+
+<!-- TRAINING ENVIRONMENT -->
+
+
+<section class="glass rounded-3xl p-8 mb-8">
+
+
+<h2 class="text-3xl font-bold mb-3">
+
+🏋️ Your Training Environment
+
+</h2>
+
+
+<p class="text-gray-400 mb-6">
+
+Where and how do you train?
+
+</p>
+
+
+
+
+<div class="grid md:grid-cols-2 gap-5">
+
+
+
+<div class="card-option"
+
+onclick="selectCard(this,'gymAccess','Commercial Gym')">
+
+
+<h3 class="text-xl font-bold">
+
+🏢 Commercial Gym
+
+</h3>
+
+<p class="text-gray-400">
+
+Full equipment access.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="card-option"
+
+onclick="selectCard(this,'gymAccess','Home Gym')">
+
+
+<h3 class="text-xl font-bold">
+
+🏠 Home Gym
+
+</h3>
+
+<p class="text-gray-400">
+
+Personal equipment setup.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="card-option"
+
+onclick="selectCard(this,'gymAccess','Dumbbells Only')">
+
+
+<h3 class="text-xl font-bold">
+
+💪 Dumbbells Only
+
+</h3>
+
+<p class="text-gray-400">
+
+Simple strength training.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="card-option"
+
+onclick="selectCard(this,'gymAccess','Bodyweight')">
+
+
+<h3 class="text-xl font-bold">
+
+🤸 Bodyweight
+
+</h3>
+
+<p class="text-gray-400">
+
+Train anywhere.
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+<!-- EQUIPMENT -->
+
+
+<section class="glass rounded-3xl p-8 mb-8">
+
+
+<h2 class="text-3xl font-bold mb-3">
+
+⚙️ Available Equipment
+
+</h2>
+
+
+<p class="text-gray-400 mb-6">
+
+Choose everything you have access to.
+
+You can select multiple.
+
+</p>
+
+
+
+
+<div class="grid md:grid-cols-3 gap-4">
+
+
+
+<div class="card-option multi"
+
+onclick="toggleMulti(this,'equipment','Barbell')">
+
+🏋️ Barbell
+
+</div>
+
+
+
+<div class="card-option multi"
+
+onclick="toggleMulti(this,'equipment','Dumbbells')">
+
+💪 Dumbbells
+
+</div>
+
+
+
+<div class="card-option multi"
+
+onclick="toggleMulti(this,'equipment','Machines')">
+
+⚙️ Machines
+
+</div>
+
+
+
+<div class="card-option multi"
+
+onclick="toggleMulti(this,'equipment','Cable Machine')">
+
+🔗 Cable Machine
+
+</div>
+
+
+
+<div class="card-option multi"
+
+onclick="toggleMulti(this,'equipment','Smith Machine')">
+
+🏋️ Smith Machine
+
+</div>
+
+
+
+<div class="card-option multi"
+
+onclick="toggleMulti(this,'equipment','Squat Rack')">
+
+🦵 Squat Rack
+
+</div>
+
+
+
+<div class="card-option multi"
+
+onclick="toggleMulti(this,'equipment','Bench')">
+
+🪑 Bench
+
+</div>
+
+
+
+<div class="card-option multi"
+
+onclick="toggleMulti(this,'equipment','Leg Press')">
+
+🔥 Leg Press
+
+</div>
+
+
+
+<div class="card-option multi"
+
+onclick="toggleMulti(this,'equipment','Cardio Machines')">
+
+🏃 Cardio Machines
+
+</div>
+
+
+
+<div class="card-option multi"
+
+onclick="toggleMulti(this,'equipment','Resistance Bands')">
+
+🟢 Resistance Bands
+
+</div>
+
+
+
+<div class="card-option multi"
+
+onclick="toggleMulti(this,'equipment','Kettlebells')">
+
+🔔 Kettlebells
+
+</div>
+
+
+
+<div class="card-option multi"
+
+onclick="toggleMulti(this,'equipment','Pull Up Bar')">
+
+🪜 Pull Up Bar
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+<!-- TRAINING SCHEDULE -->
+
+
+<section class="glass rounded-3xl p-8 mb-8">
+
+
+<h2 class="text-3xl font-bold mb-3">
+
+📅 Training Schedule
+
+</h2>
+
+
+<p class="text-gray-400 mb-6">
+
+How will fitness fit into your life?
+
+</p>
+
+
+
+
+<label>
+
+Days per week
+
+</label>
+
+
+<select id="days"
+
+class="input mt-2 mb-5">
+
+
+<option>2 Days</option>
+
+<option>3 Days</option>
+
+<option>4 Days</option>
+
+<option>5 Days</option>
+
+<option>6+ Days</option>
+
+
+</select>
+
+
+
+
+
+<label>
+
+Workout Duration
+
+</label>
+
+
+<select id="duration"
+
+class="input mt-2">
+
+
+<option>20-30 Minutes</option>
+
+<option>45 Minutes</option>
+
+<option>60 Minutes</option>
+
+<option>90+ Minutes</option>
+
+
+</select>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- TRAINING STYLE -->
+
+
+<section class="glass rounded-3xl p-8 mb-8">
+
+
+<h2 class="text-3xl font-bold mb-5">
+
+🔥 Training Style
 
 </h2>
 
 
 
-<select
-class="input"
-id="goal">
+<div class="grid md:grid-cols-2 gap-5">
 
 
-<option>
-Build Muscle
-</option>
+
+<div class="card-option"
+
+onclick="selectCard(this,'style','Bodybuilding')">
+
+💪 Bodybuilding
+
+</div>
 
 
-<option>
-Lose Fat
-</option>
+
+<div class="card-option"
+
+onclick="selectCard(this,'style','Strength')">
+
+🏋️ Strength Training
+
+</div>
 
 
-<option>
-Body Recomposition
-</option>
+
+<div class="card-option"
+
+onclick="selectCard(this,'style','Athletic')">
+
+⚡ Athletic Training
+
+</div>
 
 
-<option>
-Improve Fitness
-</option>
 
+<div class="card-option"
 
-<option>
-Increase Strength
-</option>
+onclick="selectCard(this,'style','Balanced')">
 
+⚖️ Balanced Fitness
 
-</select>
+</div>
 
 
 
 </div>
-<!-- TRAINING PREFERENCES -->
 
 
-<div class="glass rounded-3xl p-8 mb-8">
+
+</section>
 
 
-<h2 class="section-title">
 
-🏋️ Training Setup
+
+
+
+
+
+
+
+<!-- MOBILITY -->
+
+
+<section class="glass rounded-3xl p-8 mb-8">
+
+
+<h2 class="text-3xl font-bold mb-3">
+
+🤸 Warm-up & Mobility
 
 </h2>
 
 
+<p class="text-gray-400 mb-6">
 
-<label>
-Gym Access
-</label>
+Not yoga — this helps movement, performance and injury prevention.
 
+</p>
 
-<select
-class="input"
-id="gymAccess">
 
 
-<option>
-Full Commercial Gym
-</option>
 
+<div class="grid md:grid-cols-2 gap-5">
 
-<option>
-Basic Gym
-</option>
 
 
-<option>
-Home Gym
-</option>
+<div class="card-option"
 
+onclick="selectCard(this,'warmup','Quick Warm-up')">
 
-<option>
-Dumbbells Only
-</option>
+⚡ Quick
 
+<br>
 
-<option>
-Bodyweight Only
-</option>
+<span class="text-gray-400">
 
+3-5 minutes
 
-</select>
+</span>
 
+</div>
 
 
 
+<div class="card-option"
 
-<label>
-Days You Can Train Per Week
-</label>
+onclick="selectCard(this,'warmup','Standard Warm-up')">
 
+🔥 Standard
 
-<select
-class="input"
-id="days">
+<br>
 
+<span class="text-gray-400">
 
-<option>
-2 Days
-</option>
+8-10 minutes
 
+</span>
 
-<option>
-3 Days
-</option>
+</div>
 
 
-<option>
-4 Days
-</option>
 
+<div class="card-option"
 
-<option>
-5 Days
-</option>
+onclick="selectCard(this,'warmup','Performance Warm-up')">
 
+🏆 Performance
 
-<option>
-6+ Days
-</option>
+<br>
 
+<span class="text-gray-400">
 
-</select>
+15+ minutes
 
+</span>
 
-
-
-
-<label>
-Average Workout Length
-</label>
-
-
-<select
-class="input"
-id="duration">
-
-
-<option>
-Under 30 minutes
-</option>
-
-
-<option>
-30-45 minutes
-</option>
-
-
-<option>
-45-60 minutes
-</option>
-
-
-<option>
-60+ minutes
-</option>
-
-
-</select>
-
-
-
-
-<label>
-Training Preference
-</label>
-
-
-<select
-class="input"
-id="trainingStyle">
-
-
-<option>
-Machines
-</option>
-
-
-<option>
-Free Weights
-</option>
-
-
-<option>
-Mixed Training
-</option>
-
-
-<option>
-No Preference
-</option>
-
-
-</select>
+</div>
 
 
 
 </div>
+
+
+</section><!-- ========================= -->
+<!-- PART 4 START -->
+<!-- ========================= -->
+
+
+
+
+
+<!-- SPORTS -->
+
+
+<section class="glass rounded-3xl p-8 mb-8">
+
+
+<h2 class="text-3xl font-bold mb-3">
+
+🏃 Activities & Sports
+
+</h2>
+
+
+<p class="text-gray-400 mb-6">
+
+Select anything you currently do.
+
+</p>
+
+
+
+<div class="grid md:grid-cols-3 gap-4">
+
+
+<div class="card-option multi"
+
+onclick="toggleMulti(this,'sports','Football')">
+
+⚽ Football
+
+</div>
+
+
+<div class="card-option multi"
+
+onclick="toggleMulti(this,'sports','Basketball')">
+
+🏀 Basketball
+
+</div>
+
+
+<div class="card-option multi"
+
+onclick="toggleMulti(this,'sports','Running')">
+
+🏃 Running
+
+</div>
+
+
+<div class="card-option multi"
+
+onclick="toggleMulti(this,'sports','Swimming')">
+
+🏊 Swimming
+
+</div>
+
+
+<div class="card-option multi"
+
+onclick="toggleMulti(this,'sports','Martial Arts')">
+
+🥋 Martial Arts
+
+</div>
+
+
+<div class="card-option multi"
+
+onclick="toggleMulti(this,'sports','None')">
+
+❌ None
+
+</div>
+
+
+</div>
+
+
+</section>
+
 
 
 
@@ -662,111 +1656,46 @@ No Preference
 <!-- LIFESTYLE -->
 
 
-<div class="glass rounded-3xl p-8 mb-8">
+<section class="glass rounded-3xl p-8 mb-8">
 
 
-<h2 class="section-title">
+<h2 class="text-3xl font-bold mb-3">
 
-🌱 Lifestyle
+🌙 Lifestyle
 
 </h2>
 
 
 
-
-<label>
-Average Sleep Per Night
-</label>
+<div class="grid md:grid-cols-2 gap-6">
 
 
-<select
-class="input"
-id="sleep">
+
+<div>
 
 
-<option>
-Less than 5 hours
-</option>
+<p class="mb-3">
+
+Average Sleep
+
+</p>
 
 
-<option>
-5-7 hours
-</option>
+<select id="sleep"
+
+class="input">
 
 
-<option>
-7-9 hours
-</option>
+<option>Less than 5 hours</option>
 
+<option>5-7 hours</option>
 
-<option>
-9+ hours
-</option>
+<option>7-9 hours</option>
+
+<option>9+ hours</option>
 
 
 </select>
-
-
-
-
-
-<label>
-Stress Level
-</label>
-
-
-<select
-class="input"
-id="stress">
-
-
-<option>
-Low
-</option>
-
-
-<option>
-Moderate
-</option>
-
-
-<option>
-High
-</option>
-
-
-</select>
-
-
-
-
-<label>
-Daily Activity Outside Gym
-</label>
-
-
-<select
-class="input"
-id="dailyActivity">
-
-
-<option>
-Mostly Sitting
-</option>
-
-
-<option>
-Normal Daily Movement
-</option>
-
-
-<option>
-Very Active
-</option>
-
-
-</select>
-
 
 
 </div>
@@ -775,61 +1704,29 @@ Very Active
 
 
 
+<div>
 
 
+<p class="mb-3">
 
-<!-- HEALTH -->
+Daily Activity
 
-
-<div class="glass rounded-3xl p-8 mb-8">
-
-
-<h2 class="section-title">
-
-❤️ Health & Safety
-
-</h2>
+</p>
 
 
+<select id="activity"
 
-<label>
-Any Injuries or Limitations?
-</label>
-
-
-<textarea
-
-class="input"
-
-id="injuries"
-
-rows="4"
-
-placeholder="Example: Knee problems, shoulder issues, none"
-
-></textarea>
+class="input">
 
 
+<option>Mostly Sitting</option>
+
+<option>Average Activity</option>
+
+<option>Very Active</option>
 
 
-<label>
-Anything GymPilot Should Know?
-
-</label>
-
-
-<textarea
-
-class="input"
-
-id="notes"
-
-rows="4"
-
-placeholder="Training preferences, dislikes, goals..."
-
-></textarea>
-
+</select>
 
 
 </div>
@@ -837,18 +1734,283 @@ placeholder="Training preferences, dislikes, goals..."
 
 
 
+</div>
+
+
+</section>
 
 
 
 
-<button 
-class="primary-btn"
-onclick="saveProfile()"
->
 
-Create My GymPilot Profile
+
+
+
+
+
+<!-- NUTRITION -->
+
+
+<section class="glass rounded-3xl p-8 mb-8">
+
+
+<h2 class="text-3xl font-bold mb-5">
+
+🍎 Nutrition Habits
+
+</h2>
+
+
+
+<div class="grid md:grid-cols-2 gap-5">
+
+
+<div class="card-option"
+
+onclick="selectCard(this,'nutrition','No Tracking')">
+
+🍽️
+
+<br>
+
+No Tracking
+
+</div>
+
+
+
+<div class="card-option"
+
+onclick="selectCard(this,'nutrition','Protein Focus')">
+
+🥩
+
+<br>
+
+Protein Focus
+
+</div>
+
+
+
+
+<div class="card-option"
+
+onclick="selectCard(this,'nutrition','Calorie Tracking')">
+
+📊
+
+<br>
+
+Calorie Tracking
+
+</div>
+
+
+
+
+<div class="card-option"
+
+onclick="selectCard(this,'nutrition','Healthy Routine')">
+
+🥗
+
+<br>
+
+Healthy Routine
+
+</div>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- INJURIES -->
+
+
+<section class="glass rounded-3xl p-8 mb-8">
+
+
+<h2 class="text-3xl font-bold mb-3">
+
+🩹 Injuries & Limitations
+
+</h2>
+
+
+<p class="text-gray-400 mb-6">
+
+Choose anything GymPilot should consider.
+
+</p>
+
+
+
+
+<div class="grid md:grid-cols-3 gap-4">
+
+
+
+<div class="card-option multi"
+
+onclick="toggleMulti(this,'injuries','Knee')">
+
+🦵 Knee
+
+</div>
+
+
+
+<div class="card-option multi"
+
+onclick="toggleMulti(this,'injuries','Back')">
+
+🔙 Back
+
+</div>
+
+
+
+<div class="card-option multi"
+
+onclick="toggleMulti(this,'injuries','Shoulder')">
+
+💪 Shoulder
+
+</div>
+
+
+
+<div class="card-option multi"
+
+onclick="toggleMulti(this,'injuries','Wrist')">
+
+✋ Wrist
+
+</div>
+
+
+
+<div class="card-option multi"
+
+onclick="toggleMulti(this,'injuries','None')">
+
+✅ None
+
+</div>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+<!-- MOTIVATION -->
+
+
+<section class="glass rounded-3xl p-8 mb-8">
+
+
+<h2 class="text-3xl font-bold mb-5">
+
+🧠 Your Motivation
+
+</h2>
+
+
+
+<div class="grid md:grid-cols-2 gap-5">
+
+
+
+<div class="card-option"
+
+onclick="selectCard(this,'motivation','Look Better')">
+
+🔥 Look Better
+
+</div>
+
+
+
+<div class="card-option"
+
+onclick="selectCard(this,'motivation','Feel Healthier')">
+
+❤️ Feel Healthier
+
+</div>
+
+
+
+<div class="card-option"
+
+onclick="selectCard(this,'motivation','Build Confidence')">
+
+⭐ Build Confidence
+
+</div>
+
+
+
+<div class="card-option"
+
+onclick="selectCard(this,'motivation','Build Discipline')">
+
+⚡ Build Discipline
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+<button
+
+onclick="finishSetup()"
+
+class="button mb-10">
+
+
+Create My GymPilot Profile 🚀
+
 
 </button>
+
+
 
 
 
@@ -867,83 +2029,14 @@ Create My GymPilot Profile
 <script>
 
 
-function saveProfile(){
-
-
 
 let profile = {
 
+equipment:[],
 
-age:
-document.getElementById("age").value,
+sports:[],
 
-
-sex:
-document.getElementById("sex").value,
-
-
-height:
-document.getElementById("height").value,
-
-
-weight:
-document.getElementById("weight").value,
-
-
-targetWeight:
-document.getElementById("targetWeight").value,
-
-
-fitnessLevel:
-document.getElementById("fitnessLevel").value,
-
-
-activity:
-document.getElementById("activity").value,
-
-
-cardio:
-document.getElementById("cardio").value,
-
-
-goal:
-document.getElementById("goal").value,
-
-
-gymAccess:
-document.getElementById("gymAccess").value,
-
-
-days:
-document.getElementById("days").value,
-
-
-duration:
-document.getElementById("duration").value,
-
-
-trainingStyle:
-document.getElementById("trainingStyle").value,
-
-
-sleep:
-document.getElementById("sleep").value,
-
-
-stress:
-document.getElementById("stress").value,
-
-
-dailyActivity:
-document.getElementById("dailyActivity").value,
-
-
-injuries:
-document.getElementById("injuries").value,
-
-
-notes:
-document.getElementById("notes").value
+injuries:[]
 
 
 };
@@ -951,18 +2044,143 @@ document.getElementById("notes").value
 
 
 
-if(
-!profile.age ||
-!profile.height ||
-!profile.weight
-){
 
-alert("Please complete your basic information first.");
 
-return;
+function selectCard(element,key,value){
+
+
+let cards =
+document.querySelectorAll(
+`[onclick*="'${key}'"]`
+);
+
+
+cards.forEach(card=>{
+
+card.classList.remove("selected");
+
+});
+
+
+
+element.classList.add("selected");
+
+
+profile[key]=value;
+
 
 }
 
+
+
+
+
+
+
+
+function toggleMulti(element,key,value){
+
+
+element.classList.toggle("selected");
+
+
+
+if(!profile[key]){
+
+profile[key]=[];
+
+}
+
+
+
+
+if(element.classList.contains("selected")){
+
+
+profile[key].push(value);
+
+
+}
+
+else{
+
+
+profile[key] =
+profile[key].filter(
+item=>item!==value
+);
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+function finishSetup(){
+
+
+
+profile.name =
+document.getElementById("name").value;
+
+
+profile.age =
+document.getElementById("age").value;
+
+
+profile.height =
+document.getElementById("height").value;
+
+
+profile.weight =
+document.getElementById("weight").value;
+
+
+profile.targetWeight =
+document.getElementById("targetWeight").value;
+
+
+
+profile.days =
+document.getElementById("days").value;
+
+
+profile.duration =
+document.getElementById("duration").value;
+
+
+
+profile.sleep =
+document.getElementById("sleep").value;
+
+
+profile.activity =
+document.getElementById("activity").value;
+
+
+
+
+if(!profile.name || !profile.age || !profile.goal){
+
+
+alert(
+"Please complete your main profile information first."
+);
+
+
+return;
+
+
+}
 
 
 
@@ -976,12 +2194,11 @@ JSON.stringify(profile)
 
 
 
-
 window.location.href="dashboard.html";
 
 
-
 }
+
 
 
 
