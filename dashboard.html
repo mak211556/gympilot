@@ -8,44 +8,109 @@
 
 <title>GymPilot Dashboard</title>
 
+
 <script src="https://cdn.tailwindcss.com"></script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+
 
 <style>
 
-body {
-background:#050816;
+
+body{
+
+background:
+radial-gradient(circle at top,#1e3a8a,transparent 35%),
+#050816;
+
 color:white;
-font-family:Arial;
+
+font-family:'Inter',sans-serif;
+
 }
 
-.card {
 
-background:#111827;
-border:1px solid #1f2937;
-border-radius:20px;
+
+.card{
+
+background:
+rgba(255,255,255,0.07);
+
+backdrop-filter:blur(20px);
+
+border:1px solid rgba(255,255,255,0.1);
+
+border-radius:25px;
+
 padding:25px;
 
 }
 
 
-button {
 
-background:linear-gradient(90deg,#22c55e,#3b82f6);
-padding:12px 20px;
-border-radius:12px;
+.stat{
+
+background:#111827;
+
+border-radius:18px;
+
+padding:20px;
+
+}
+
+
+
+.exercise{
+
+background:#111827;
+
+padding:15px;
+
+border-radius:15px;
+
+margin-bottom:12px;
+
+}
+
+
+
+button{
+
+background:linear-gradient(
+90deg,
+#22c55e,
+#3b82f6
+);
+
+padding:14px;
+
+border-radius:15px;
+
 font-weight:bold;
 
 }
 
 
-.exercise {
+.input{
 
-background:#1f2937;
-padding:15px;
+background:#111827;
+
+border:1px solid #374151;
+
+padding:12px;
+
 border-radius:12px;
-margin-bottom:10px;
+
+width:100%;
+
+color:white;
 
 }
+
 
 
 </style>
@@ -58,15 +123,16 @@ margin-bottom:10px;
 <body>
 
 
+
 <div class="max-w-6xl mx-auto p-6">
+
 
 
 <!-- HEADER -->
 
-<div class="flex justify-between items-center mb-10">
 
+<header class="mb-10">
 
-<div>
 
 <h1 class="text-5xl font-black">
 
@@ -77,108 +143,213 @@ Pilot
 
 </h1>
 
+
 <p class="text-gray-400">
-Your personal fitness dashboard
+
+Your personalised fitness command centre
+
 </p>
 
+
+</header>
+
+
+
+
+
+
+
+<!-- PROFILE -->
+
+
+<div class="card mb-8">
+
+
+<h2 class="text-3xl font-bold mb-6">
+
+👤 Your Profile
+
+</h2>
+
+
+
+<div class="grid md:grid-cols-3 gap-5">
+
+
+<div class="stat">
+
+<p class="text-gray-400">
+Goal
+</p>
+
+<h3 id="goal"
+class="text-xl font-bold">
+
+-
+
+</h3>
+
+</div>
+
+
+
+<div class="stat">
+
+<p class="text-gray-400">
+Fitness Level
+</p>
+
+<h3 id="level"
+class="text-xl font-bold">
+
+-
+
+</h3>
+
+</div>
+
+
+
+
+<div class="stat">
+
+<p class="text-gray-400">
+BMI
+</p>
+
+<h3 id="bmi"
+class="text-xl font-bold">
+
+-
+
+</h3>
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- BODY DATA -->
+
+
+<div class="card mb-8">
+
+
+<h2 class="text-3xl font-bold mb-5">
+
+📊 Body Information
+
+</h2>
+
+
+<div class="grid md:grid-cols-4 gap-5">
+
+
+<div>
+
+<p class="text-gray-400">
+Age
+</p>
+
+<p id="age"
+class="text-xl">
+
+-
+
+</p>
 
 </div>
 
 
 <div>
 
-<button onclick="resetProgress()">
-
-Reset
-
-</button>
-
-</div>
-
-
-</div>
-
-
-
-
-
-<!-- STATS -->
-
-<div class="grid md:grid-cols-3 gap-5 mb-8">
-
-
-<div class="card">
-
 <p class="text-gray-400">
-Workouts Completed
+Height
+
 </p>
 
-<h2 id="completed"
-class="text-4xl font-bold">
+<p id="height"
+class="text-xl">
 
-0
+-
 
-</h2>
-
-</div>
-
-
-
-
-<div class="card">
-
-<p class="text-gray-400">
-Current Goal
 </p>
 
-<h2 id="goal"
-class="text-2xl font-bold">
-
-Loading...
-
-</h2>
-
-
 </div>
 
 
 
-
-<div class="card">
+<div>
 
 <p class="text-gray-400">
-Fitness Level
+Weight
+
 </p>
 
-<h2 class="text-2xl font-bold">
+<p id="weight"
+class="text-xl">
 
-Beginner
+-
 
-</h2>
+</p>
+
+</div>
+
+
+
+<div>
+
+<p class="text-gray-400">
+Target
+
+</p>
+
+<p id="target"
+class="text-xl">
+
+-
+
+</p>
+
+</div>
+
+
+</div>
 
 
 </div>
 
 
 
-</div>
 
 
 
 
 
 
+<!-- TODAY WORKOUT -->
 
 
-<!-- WORKOUT -->
-
-
-<div class="card">
+<div class="card mb-8">
 
 
 <h2 class="text-3xl font-bold mb-5">
 
-Today's Workout
+🔥 Today's Workout
 
 </h2>
 
@@ -187,7 +358,7 @@ Today's Workout
 <div class="exercise">
 
 <input type="checkbox"
-onclick="completeWorkout()">
+onchange="completeExercise(this)">
 
  Bench Press
 
@@ -198,20 +369,9 @@ onclick="completeWorkout()">
 <div class="exercise">
 
 <input type="checkbox"
-onclick="completeWorkout()">
+onchange="completeExercise(this)">
 
-Lat Pulldown
-
-</div>
-
-
-
-<div class="exercise">
-
-<input type="checkbox"
-onclick="completeWorkout()">
-
-Squats
+ Lat Pulldown
 
 </div>
 
@@ -220,9 +380,20 @@ Squats
 <div class="exercise">
 
 <input type="checkbox"
-onclick="completeWorkout()">
+onchange="completeExercise(this)">
 
-Running / Cardio
+ Squats
+
+</div>
+
+
+
+<div class="exercise">
+
+<input type="checkbox"
+onchange="completeExercise(this)">
+
+ Cardio
 
 </div>
 
@@ -237,70 +408,101 @@ Running / Cardio
 
 
 
-<!-- PROGRESS -->
 
-<div class="card mt-8">
+<!-- TRACKING -->
+
+
+<div class="card mb-8">
 
 
 <h2 class="text-3xl font-bold mb-5">
 
-Progress
+📈 Progress Tracking
 
 </h2>
 
 
-<div class="grid md:grid-cols-3 gap-5">
-
-
-<div>
 
 <p class="text-gray-400">
-Weight
+
+Completed workouts:
 
 </p>
 
-<p class="text-2xl">
-Track weekly
+
+<h1 id="completed"
+class="text-5xl font-bold">
+
+0
+
+</h1>
+
+
+
+
+<br>
+
+
+
+<input
+
+id="newWeight"
+
+class="input"
+
+placeholder="Enter current weight kg"
+
+
+>
+
+
+<button
+onclick="saveWeight()"
+class="mt-4 w-full">
+
+Save Weight
+
+</button>
+
+
+
+
+<p id="weightHistory"
+class="mt-5">
+
 </p>
+
+
 
 </div>
 
 
 
-<div>
-
-<p class="text-gray-400">
-Strength
-
-</p>
-
-<p class="text-2xl">
-Improving
-</p>
-
-</div>
 
 
 
 
-<div>
 
-<p class="text-gray-400">
-Consistency
+<!-- RECOMMENDATION -->
 
-</p>
 
-<p class="text-2xl">
-Building
+<div class="card">
+
+
+<h2 class="text-3xl font-bold mb-5">
+
+🤖 GymPilot Recommendation
+
+</h2>
+
+
+<p id="recommendation"
+class="text-gray-300">
+
+Loading...
 
 </p>
 
-</div>
-
-
-
-</div>
-
 
 </div>
 
@@ -309,6 +511,10 @@ Building
 
 
 </div>
+
+
+
+
 
 
 
@@ -317,8 +523,75 @@ Building
 <script>
 
 
+
+let profile =
+JSON.parse(localStorage.getItem("gympilot"));
+
+
+
+if(!profile){
+
+alert("No profile found");
+
+window.location.href="index.html";
+
+}
+
+
+
+
+document.getElementById("goal").innerHTML =
+profile.goal;
+
+
+
+document.getElementById("level").innerHTML =
+profile.fitnessLevel;
+
+
+
+document.getElementById("age").innerHTML =
+profile.age;
+
+
+
+document.getElementById("height").innerHTML =
+profile.height+" cm";
+
+
+
+document.getElementById("weight").innerHTML =
+profile.weight+" kg";
+
+
+
+document.getElementById("target").innerHTML =
+profile.targetWeight+" kg";
+
+
+
+
+
+let bmi =
+(
+profile.weight /
+((profile.height/100)*(profile.height/100))
+).toFixed(1);
+
+
+
+document.getElementById("bmi").innerHTML=bmi;
+
+
+
+
+
+
+
+
 let completed =
 localStorage.getItem("completed") || 0;
+
 
 
 document.getElementById("completed").innerHTML =
@@ -326,31 +599,14 @@ completed;
 
 
 
-let profile =
-JSON.parse(localStorage.getItem("gympilot"));
-
-
-
-if(profile){
-
-document.getElementById("goal").innerHTML =
-profile.goal;
-
-}
-
-else{
-
-document.getElementById("goal").innerHTML =
-"Set Profile";
-
-}
 
 
 
 
+function completeExercise(box){
 
-function completeWorkout(){
 
+if(box.checked){
 
 completed++;
 
@@ -368,15 +624,75 @@ completed;
 }
 
 
+}
 
 
-function resetProgress(){
 
-localStorage.clear();
 
-location.reload();
+
+
+
+
+
+function saveWeight(){
+
+
+let weight =
+document.getElementById("newWeight").value;
+
+
+localStorage.setItem(
+"latestWeight",
+weight
+);
+
+
+document.getElementById("weightHistory").innerHTML =
+"Latest weight: "+weight+" kg";
+
 
 }
+
+
+
+
+
+
+
+
+let recommendation="";
+
+
+
+if(profile.goal==="Build Muscle"){
+
+recommendation=
+"Focus on progressive overload, protein intake, and consistent strength training.";
+
+}
+
+
+
+if(profile.goal==="Lose Fat"){
+
+recommendation=
+"Prioritise strength training with regular cardio and a sustainable calorie deficit.";
+
+}
+
+
+
+if(profile.goal==="Improve Fitness"){
+
+recommendation=
+"Build consistency with strength, mobility, and cardiovascular training.";
+
+}
+
+
+
+document.getElementById("recommendation").innerHTML =
+recommendation;
 
 
 
