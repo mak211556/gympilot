@@ -8,10 +8,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-<title>GymPilot | Personal Fitness System</title>
+<title>GymPilot | Your Fitness System</title>
 
 
-<!-- Fonts -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -35,35 +34,26 @@ box-sizing:border-box;
 
 body{
 
+margin:0;
 
 min-height:100vh;
 
-
-margin:0;
-
-
 background:
 
-radial-gradient(
-circle at top left,
-rgba(34,197,94,0.25),
-transparent 35%
-),
+radial-gradient(circle at top left,
+rgba(34,197,94,.25),
+transparent 35%),
 
-radial-gradient(
-circle at bottom right,
-rgba(59,130,246,0.25),
-transparent 35%
-),
+radial-gradient(circle at bottom right,
+rgba(59,130,246,.25),
+transparent 35%),
 
 #030712;
 
 
 color:white;
 
-
 font-family:'Manrope',sans-serif;
-
 
 }
 
@@ -71,25 +61,19 @@ font-family:'Manrope',sans-serif;
 
 h1,h2,h3{
 
-
 font-family:'Sora',sans-serif;
-
 
 }
 
 
 
-.app-container{
-
+.container{
 
 max-width:900px;
 
-
 margin:auto;
 
-
 padding:35px 20px;
-
 
 }
 
@@ -98,32 +82,27 @@ padding:35px 20px;
 
 .glass{
 
-
 background:
 
-rgba(255,255,255,0.08);
-
+rgba(255,255,255,.08);
 
 border:
 
-1px solid rgba(255,255,255,0.12);
-
+1px solid rgba(255,255,255,.12);
 
 backdrop-filter:
 
 blur(25px);
 
-
-border-radius:32px;
-
+border-radius:30px;
 
 }
 
 
 
 
-.logo{
 
+.logo{
 
 background:
 
@@ -136,55 +115,7 @@ linear-gradient(
 
 -webkit-background-clip:text;
 
-
 color:transparent;
-
-
-}
-
-
-
-
-.progress-background{
-
-
-height:10px;
-
-
-background:#1f2937;
-
-
-border-radius:20px;
-
-
-overflow:hidden;
-
-
-}
-
-
-
-
-.progress-fill{
-
-
-height:100%;
-
-
-width:0%;
-
-
-background:
-
-linear-gradient(
-90deg,
-#22c55e,
-#38bdf8
-);
-
-
-transition:.5s;
-
 
 }
 
@@ -197,12 +128,12 @@ transition:.5s;
 
 background:
 
-rgba(17,24,39,.8);
+rgba(17,24,39,.85);
 
 
 border:
 
-1px solid rgba(255,255,255,.1);
+1px solid rgba(255,255,255,.12);
 
 
 border-radius:22px;
@@ -221,12 +152,10 @@ transition:.25s;
 
 
 
-
-
 .option:hover{
 
 
-transform:translateY(-4px);
+transform:translateY(-3px);
 
 
 border-color:#22c55e;
@@ -236,14 +165,7 @@ border-color:#22c55e;
 
 
 
-
-
-.option.active{
-
-
-background:
-
-rgba(34,197,94,.18);
+.option.selected{
 
 
 border:
@@ -251,8 +173,12 @@ border:
 2px solid #22c55e;
 
 
-}
+background:
 
+rgba(34,197,94,.15);
+
+
+}
 
 
 
@@ -263,6 +189,12 @@ border:
 width:100%;
 
 
+padding:15px;
+
+
+border-radius:15px;
+
+
 background:#111827;
 
 
@@ -271,16 +203,10 @@ border:
 1px solid #374151;
 
 
-padding:15px;
-
-
-border-radius:16px;
+color:white;
 
 
 margin-top:8px;
-
-
-color:white;
 
 
 }
@@ -302,20 +228,16 @@ border-color:#22c55e;
 
 
 
-
-.main-button{
+.primary{
 
 
 width:100%;
 
 
-padding:17px;
+padding:16px;
 
 
 border-radius:18px;
-
-
-font-weight:800;
 
 
 background:
@@ -327,6 +249,9 @@ linear-gradient(
 );
 
 
+font-weight:800;
+
+
 transition:.3s;
 
 
@@ -335,10 +260,55 @@ transition:.3s;
 
 
 
-.main-button:hover{
+.primary:hover{
 
 
 transform:scale(1.03);
+
+
+}
+
+
+
+
+.progress-bg{
+
+
+height:10px;
+
+
+background:#1f2937;
+
+
+border-radius:20px;
+
+
+overflow:hidden;
+
+
+}
+
+
+
+.progress{
+
+
+height:100%;
+
+
+width:0%;
+
+
+background:
+
+linear-gradient(
+90deg,
+#22c55e,
+#38bdf8
+);
+
+
+transition:.4s;
 
 
 }
@@ -350,9 +320,7 @@ transform:scale(1.03);
 .fade{
 
 
-animation:
-
-fade .35s ease;
+animation:fade .35s ease;
 
 
 }
@@ -384,6 +352,7 @@ transform:translateY(0);
 
 
 
+
 </style>
 
 
@@ -392,14 +361,11 @@ transform:translateY(0);
 
 
 
-
-
 <body>
 
 
 
-
-<div class="app-container">
+<div class="container">
 
 
 
@@ -407,7 +373,6 @@ transform:translateY(0);
 
 
 <!-- HEADER -->
-
 
 <div class="text-center mb-10">
 
@@ -419,21 +384,18 @@ GymPilot
 </h1>
 
 
-
 <p class="text-xl text-gray-300 mt-4">
 
-Your personalised fitness journey
+Your personalised fitness system
 
 </p>
-
 
 
 <p class="text-gray-400 mt-2">
 
-Build your profile. Get your training system.
+Let's build your perfect training experience.
 
 </p>
-
 
 
 </div>
@@ -445,9 +407,7 @@ Build your profile. Get your training system.
 
 
 
-
 <!-- PROGRESS -->
-
 
 <div class="glass p-6 mb-8">
 
@@ -455,7 +415,7 @@ Build your profile. Get your training system.
 <div class="flex justify-between mb-3">
 
 
-<span class="text-gray-300">
+<span>
 
 Profile Progress
 
@@ -470,40 +430,38 @@ Profile Progress
 </span>
 
 
-
 </div>
 
 
 
 
-<div class="progress-background">
+<div class="progress-bg">
 
 
-<div id="progressBar"
+<div id="progress"
 
-class="progress-fill">
-
-</div>
-
+class="progress">
 
 </div>
-
 
 
 </div>
 
 
 
+</div>
 
 
 
 
 
 
-<!-- QUESTION AREA -->
 
 
-<div id="questionBox"
+<!-- APP WINDOW -->
+
+
+<div id="app"
 
 class="glass p-8 fade">
 
@@ -518,7 +476,7 @@ class="glass p-8 fade">
 
 
 
-<!-- BUTTONS -->
+<!-- NAVIGATION -->
 
 
 <div class="grid grid-cols-2 gap-4 mt-6">
@@ -526,11 +484,11 @@ class="glass p-8 fade">
 
 <button
 
-id="backButton"
+id="back"
 
-class="main-button hidden"
+class="primary hidden"
 
-onclick="previousQuestion()">
+onclick="back()">
 
 ← Back
 
@@ -538,17 +496,19 @@ onclick="previousQuestion()">
 
 
 
+
 <button
 
-id="nextButton"
+id="next"
 
-class="main-button"
+class="primary"
 
-onclick="nextQuestion()">
+onclick="next()">
 
 Start →
 
 </button>
+
 
 
 </div>
@@ -559,13 +519,7 @@ Start →
 
 
 
-
-</div><!-- ========================= -->
-<!-- GYMPILOT V3 PART 2/3 -->
-<!-- ========================= -->
-
-
-<script>
+</div><script>
 
 
 const questions = [
@@ -573,184 +527,76 @@ const questions = [
 
 {
 title:"Welcome to GymPilot 🚀",
-
-type:"welcome",
-
+type:"info",
 content:`
 
 <h2 class="text-4xl font-bold mb-5">
-
-Let's build your fitness system
-
+Your fitness journey starts here
 </h2>
 
-
 <p class="text-gray-300 text-lg">
-
-GymPilot will learn about your goals, body, lifestyle and training preferences to create a personalised fitness experience.
-
+GymPilot learns about you, your goals and your lifestyle to create a personalised training experience.
 </p>
 
 
 <div class="grid md:grid-cols-3 gap-4 mt-8">
 
-
 <div class="option">
-
-<h3 class="font-bold text-xl">
-
-💪 Workouts
-
-</h3>
-
-<p class="text-gray-400">
-
-Personal training plans
-
-</p>
-
+💪
+<h3 class="font-bold mt-2">Training</h3>
+<p class="text-gray-400">Personal workouts</p>
 </div>
 
 
-
 <div class="option">
-
-<h3 class="font-bold text-xl">
-
-📈 Progress
-
-</h3>
-
-<p class="text-gray-400">
-
-Track improvement
-
-</p>
-
+📈
+<h3 class="font-bold mt-2">Progress</h3>
+<p class="text-gray-400">Track improvement</p>
 </div>
 
 
-
 <div class="option">
-
-<h3 class="font-bold text-xl">
-
-🔥 Guidance
-
-</h3>
-
-<p class="text-gray-400">
-
-Beginner friendly
-
-</p>
-
+🔥
+<h3 class="font-bold mt-2">Guidance</h3>
+<p class="text-gray-400">Built around you</p>
 </div>
-
-
 
 </div>
 
 `
 
 },
-
-
-
 
 
 
 
 {
-title:"About You",
-
-type:"inputs",
-
+title:"Personal Details",
+type:"form",
 content:`
 
-<h2 class="text-3xl font-bold mb-6">
-
-👤 Personal Details
-
+<h2 class="text-3xl font-bold mb-5">
+👤 About You
 </h2>
 
 
-<label>Name</label>
-
-<input 
-id="name"
-class="input"
-placeholder="Your name"
->
+<input id="name" class="input" placeholder="Name">
 
 
-<label class="block mt-5">
-
-Age
-
-</label>
+<input id="age" class="input" placeholder="Age" type="number">
 
 
-<input
-id="age"
-class="input"
-type="number"
-placeholder="Age"
->
+<input id="height" class="input" placeholder="Height (cm)" type="number">
 
 
-
-<label class="block mt-5">
-
-Height (cm)
-
-</label>
+<input id="weight" class="input" placeholder="Weight (kg)" type="number">
 
 
-<input
-id="height"
-class="input"
-type="number"
-placeholder="Height"
->
-
-
-
-<label class="block mt-5">
-
-Weight (kg)
-
-</label>
-
-
-<input
-id="weight"
-class="input"
-type="number"
-placeholder="Weight"
->
-
-
-
-<label class="block mt-5">
-
-Target Weight (kg)
-
-</label>
-
-
-<input
-id="targetWeight"
-class="input"
-type="number"
-placeholder="Target weight"
->
-
+<input id="target" class="input" placeholder="Target weight (kg)" type="number">
 
 `
 
 },
-
 
 
 
@@ -759,17 +605,17 @@ placeholder="Target weight"
 
 {
 title:"Fitness Level",
-
 type:"single",
-
-key:"fitnessLevel",
-
+key:"fitness",
 options:[
 
-"🌱 Complete Beginner",
-"⚡ Beginner",
-"🔥 Intermediate",
-"🏆 Advanced"
+"🌱 Beginner",
+
+"⚡ Intermediate",
+
+"🔥 Advanced",
+
+"🏆 Athlete"
 
 ]
 
@@ -780,21 +626,22 @@ options:[
 
 
 
-
 {
-title:"Main Goals",
-
+title:"Your Goals",
 type:"multi",
-
 key:"goals",
-
 options:[
 
 "💪 Build Muscle",
+
 "🔥 Lose Fat",
-"🏋️ Increase Strength",
+
+"🏋️ Get Stronger",
+
 "🏃 Improve Fitness",
+
 "🤸 Improve Mobility",
+
 "⚡ Sports Performance"
 
 ]
@@ -809,20 +656,17 @@ options:[
 
 {
 title:"Training Style",
-
 type:"single",
-
-key:"trainingStyle",
-
+key:"style",
 options:[
 
 "💪 Bodybuilding",
 
-"🏋️ Strength Training",
+"🏋️ Strength",
 
-"⚡ Athletic Training",
+"⚡ Athletic",
 
-"⚖️ Balanced Fitness"
+"⚖️ Balanced"
 
 ]
 
@@ -835,12 +679,9 @@ options:[
 
 
 {
-title:"Gym Access",
-
+title:"Gym Setup",
 type:"single",
-
-key:"gymAccess",
-
+key:"gym",
 options:[
 
 "🏢 Commercial Gym",
@@ -849,7 +690,7 @@ options:[
 
 "💪 Dumbbells Only",
 
-"🤸 No Equipment"
+"🤸 Bodyweight"
 
 ]
 
@@ -862,12 +703,9 @@ options:[
 
 
 {
-title:"Equipment Available",
-
+title:"Equipment",
 type:"multi",
-
 key:"equipment",
-
 options:[
 
 "🏋️ Barbell",
@@ -880,11 +718,9 @@ options:[
 
 "🦵 Squat Rack",
 
-"🪑 Bench",
-
 "🔥 Leg Press",
 
-"🏃 Cardio Machines",
+"🏃 Cardio Equipment",
 
 "🟢 Resistance Bands"
 
@@ -900,64 +736,34 @@ options:[
 
 {
 title:"Training Schedule",
-
-type:"select",
-
+type:"form",
 content:`
 
 <h2 class="text-3xl font-bold mb-5">
-
-📅 Training Routine
-
+📅 Your Schedule
 </h2>
-
-
-<label>
-
-Days per week
-
-</label>
 
 
 <select id="days" class="input">
 
-<option>2 Days</option>
-
-<option>3 Days</option>
-
-<option>4 Days</option>
-
-<option>5 Days</option>
-
-<option>6+ Days</option>
-
+<option>2 Days per week</option>
+<option>3 Days per week</option>
+<option>4 Days per week</option>
+<option>5 Days per week</option>
+<option>6+ Days per week</option>
 
 </select>
 
 
 
+<select id="time" class="input">
 
-<label class="block mt-5">
-
-Workout length
-
-</label>
-
-
-<select id="duration" class="input">
-
-
-<option>20-30 minutes</option>
-
-<option>45 minutes</option>
-
-<option>60 minutes</option>
-
-<option>90+ minutes</option>
-
+<option>30 Minutes</option>
+<option>45 Minutes</option>
+<option>60 Minutes</option>
+<option>90+ Minutes</option>
 
 </select>
-
 
 `
 
@@ -971,20 +777,17 @@ Workout length
 
 {
 title:"Warm Up & Mobility",
-
 type:"single",
-
 key:"mobility",
-
 options:[
 
-"⚡ Quick Warmup",
+"⚡ Quick Warm Up",
 
-"🔥 Standard Warmup",
+"🔥 Full Warm Up",
 
-"🏆 Performance Warmup",
+"🤸 Mobility Focus",
 
-"🤸 Mobility Focus"
+"🏆 Performance"
 
 ]
 
@@ -998,60 +801,31 @@ options:[
 
 {
 title:"Lifestyle",
-
-type:"select",
-
+type:"form",
 content:`
 
 <h2 class="text-3xl font-bold mb-5">
-
 🌙 Lifestyle
-
 </h2>
-
-
-<label>
-
-Sleep
-
-</label>
 
 
 <select id="sleep" class="input">
 
-
-<option>Less than 5 hours</option>
-
-<option>5-7 hours</option>
-
-<option>7-9 hours</option>
-
-<option>9+ hours</option>
-
+<option>Less than 5 hours sleep</option>
+<option>5-7 hours sleep</option>
+<option>7-9 hours sleep</option>
+<option>9+ hours sleep</option>
 
 </select>
-
-
-
-<label class="block mt-5">
-
-Daily activity
-
-</label>
 
 
 <select id="activity" class="input">
 
-
-<option>Mostly sitting</option>
-
-<option>Moderately active</option>
-
-<option>Very active</option>
-
+<option>Low activity</option>
+<option>Average activity</option>
+<option>High activity</option>
 
 </select>
-
 
 `
 
@@ -1065,11 +839,8 @@ Daily activity
 
 {
 title:"Nutrition",
-
 type:"single",
-
-key:"nutrition",
-
+key:"food",
 options:[
 
 "🍽️ No Tracking",
@@ -1078,7 +849,7 @@ options:[
 
 "📊 Calorie Tracking",
 
-"🥗 Healthy Routine"
+"🥗 Healthy Eating"
 
 ]
 
@@ -1089,14 +860,10 @@ options:[
 
 
 
-
 {
 title:"Motivation",
-
 type:"single",
-
 key:"motivation",
-
 options:[
 
 "⭐ Confidence",
@@ -1116,25 +883,18 @@ options:[
 
 
 
-
 {
-title:"Ready",
-
+title:"Complete 🎉",
 type:"finish",
-
 content:`
 
-<h2 class="text-4xl font-bold mb-5">
-
-Your GymPilot profile is ready 🚀
-
+<h2 class="text-4xl font-bold">
+Your GymPilot profile is ready
 </h2>
 
 
-<p class="text-gray-300">
-
-Your personalised fitness system is being created.
-
+<p class="text-gray-300 mt-4">
+Creating your personalised dashboard...
 </p>
 
 `
@@ -1147,28 +907,16 @@ Your personalised fitness system is being created.
 
 
 
-</script><!-- ========================= -->
-<!-- GYMPILOT V3 PART 3/3 -->
-<!-- ========================= -->
 
 
-
-<script>
-
+let current = 0;
 
 
-let currentQuestion = 0;
+let profile = {
 
+goals:[],
 
-
-let answers = {
-
-
-equipment:[],
-
-
-goals:[]
-
+equipment:[]
 
 };
 
@@ -1178,21 +926,17 @@ goals:[]
 
 
 
-function loadQuestion(){
+function display(){
 
 
 
-let q = questions[currentQuestion];
-
-
-
-let box = document.getElementById("questionBox");
-
+let q = questions[current];
 
 
 let html = `
 
 <div class="fade">
+
 
 <h2 class="text-3xl font-bold mb-6">
 
@@ -1206,12 +950,9 @@ ${q.title}
 
 
 
-
-if(q.type === "welcome" || q.type === "inputs" || q.type === "select" || q.type === "finish"){
-
+if(q.content){
 
 html += q.content;
-
 
 }
 
@@ -1221,11 +962,11 @@ html += q.content;
 
 
 
-if(q.type === "single" || q.type === "multi"){
+if(q.type==="single" || q.type==="multi"){
 
 
 
-html += `
+html+=`
 
 <div class="grid md:grid-cols-2 gap-5">
 
@@ -1236,33 +977,24 @@ html += `
 q.options.forEach(option=>{
 
 
-html += `
-
+html+=`
 
 <div class="option"
 
-onclick="selectOption(this,'${q.key}','${option}','${q.type}')">
-
+onclick="choose(this,'${q.key}','${option}','${q.type}')">
 
 ${option}
 
-
 </div>
 
-
 `;
-
 
 
 });
 
 
 
-html += `
-
-</div>
-
-`;
+html+=`</div>`;
 
 
 
@@ -1270,24 +1002,26 @@ html += `
 
 
 
+html+=`</div>`;
+
+
+document.getElementById("app").innerHTML=html;
 
 
 
+document.getElementById("back").classList.toggle(
 
-html += `</div>`;
+"hidden",
 
+current===0
 
-
-box.innerHTML = html;
-
-
-
+);
 
 
 
-document.getElementById("nextButton").innerHTML =
+document.getElementById("next").innerHTML=
 
-currentQuestion === questions.length-1
+current===questions.length-1
 
 ?
 
@@ -1299,21 +1033,7 @@ currentQuestion === questions.length-1
 
 
 
-
-
-document.getElementById("backButton").classList.toggle(
-
-"hidden",
-
-currentQuestion===0
-
-);
-
-
-
-
-
-updateProgress();
+progress();
 
 
 
@@ -1327,74 +1047,46 @@ updateProgress();
 
 
 
-function selectOption(element,key,value,type){
+function choose(el,key,value,type){
 
 
 
 if(type==="single"){
 
 
+el.parentElement
 
-let options =
+.querySelectorAll(".option")
 
-element.parentElement.querySelectorAll(".option");
-
-
-
-options.forEach(option=>{
-
-
-option.classList.remove("active");
-
-
-});
+.forEach(x=>x.classList.remove("selected"));
 
 
 
-element.classList.add("active");
+el.classList.add("selected");
 
 
-
-answers[key]=value;
-
+profile[key]=value;
 
 
 }
-
-
-
-
 
 
 
 if(type==="multi"){
 
 
-
-element.classList.toggle("active");
-
-
-
-if(!answers[key]){
-
-
-answers[key]=[];
-
-
-}
+el.classList.toggle("selected");
 
 
 
-if(element.classList.contains("active")){
+if(!profile[key]) profile[key]=[];
 
 
-if(!answers[key].includes(value)){
+
+if(el.classList.contains("selected")){
 
 
-answers[key].push(value);
-
-
-}
+profile[key].push(value);
 
 
 }
@@ -1402,11 +1094,7 @@ answers[key].push(value);
 else{
 
 
-answers[key] = answers[key].filter(
-
-item=>item!==value
-
-);
+profile[key]=profile[key].filter(x=>x!==value);
 
 
 }
@@ -1427,37 +1115,26 @@ item=>item!==value
 
 
 
-function saveInputs(){
+function save(){
 
 
 
-let fields=[
-
-
+[
 "name",
 "age",
 "height",
 "weight",
-"targetWeight"
+"target"
+
+].forEach(id=>{
 
 
-];
+let x=document.getElementById(id);
 
 
+if(x){
 
-fields.forEach(field=>{
-
-
-
-let input=document.getElementById(field);
-
-
-
-if(input){
-
-
-answers[field]=input.value;
-
+profile[id]=x.value;
 
 }
 
@@ -1467,37 +1144,23 @@ answers[field]=input.value;
 
 
 
-
-
-let selects=[
-
-
+[
 "days",
-"duration",
+"time",
 "sleep",
 "activity"
 
-
-];
-
+].forEach(id=>{
 
 
-selects.forEach(select=>{
+let x=document.getElementById(id);
 
 
+if(x){
 
-let item=document.getElementById(select);
-
-
-
-if(item){
-
-
-answers[select]=item.value;
-
+profile[id]=x.value;
 
 }
-
 
 
 });
@@ -1514,27 +1177,31 @@ answers[select]=item.value;
 
 
 
-function nextQuestion(){
+function next(){
+
+
+save();
 
 
 
-saveInputs();
+if(current===questions.length-1){
 
 
-
-
-
-if(currentQuestion === questions.length-1){
-
-
-
-createProfile();
-
+finish();
 
 
 return;
 
 
+}
+
+
+
+current++;
+
+
+display();
+
 
 }
 
@@ -1542,41 +1209,18 @@ return;
 
 
 
-currentQuestion++;
+
+function back(){
 
 
 
-loadQuestion();
+if(current>0){
 
+current--;
 
-
-}
-
-
-
-
-
-
-
-
-
-function previousQuestion(){
-
-
-
-if(currentQuestion>0){
-
-
-
-currentQuestion--;
-
-
-loadQuestion();
-
-
+display();
 
 }
-
 
 
 }
@@ -1587,35 +1231,25 @@ loadQuestion();
 
 
 
-
-
-function updateProgress(){
+function progress(){
 
 
 
-let percent = Math.round(
+let percent=Math.round(
 
-
-(currentQuestion /
-
-(questions.length-1))
-
-*
-
-100
-
+(current/(questions.length-1))*100
 
 );
 
 
 
-document.getElementById("progressBar").style.width =
+document.getElementById("progress").style.width=
 
 percent+"%";
 
 
 
-document.getElementById("progressText").innerHTML =
+document.getElementById("progressText").innerHTML=
 
 percent+"%";
 
@@ -1630,52 +1264,36 @@ percent+"%";
 
 
 
-
-function createProfile(){
-
-
-
-saveInputs();
+function finish(){
 
 
 
+save();
 
 
 
 if(
 
-!answers.name ||
+!profile.name ||
 
-!answers.age ||
+!profile.age ||
 
-!answers.height ||
+!profile.height ||
 
-!answers.weight ||
+!profile.weight ||
 
-!answers.goals ||
-
-answers.goals.length===0
+profile.goals.length===0
 
 ){
 
 
-
-alert(
-
-"Please complete your profile before continuing."
-
-);
-
+alert("Please complete your main profile information first.");
 
 
 return;
 
 
 }
-
-
-
-
 
 
 
@@ -1683,58 +1301,33 @@ localStorage.setItem(
 
 "gympilot",
 
-JSON.stringify(answers)
+JSON.stringify(profile)
 
 );
 
 
 
+document.getElementById("app").innerHTML=`
 
-
-
-document.getElementById("questionBox").innerHTML = `
-
-
-
-<div class="text-center">
-
-
-<h2 class="text-4xl font-bold mb-5">
+<h2 class="text-4xl font-bold text-center">
 
 Profile Created 🎉
 
 </h2>
 
+<p class="text-center text-gray-300 mt-4">
 
-
-<p class="text-gray-300">
-
-Welcome to GymPilot, ${answers.name}.
+Welcome ${profile.name}
 
 </p>
-
-
-<p class="text-gray-400 mt-3">
-
-Generating your personalised dashboard...
-
-</p>
-
-
-</div>
-
 
 `;
 
 
 
-
-
 setTimeout(()=>{
 
-
 window.location.href="dashboard.html";
-
 
 },2500);
 
@@ -1747,13 +1340,7 @@ window.location.href="dashboard.html";
 
 
 
-
-
-
-// Start App
-
-
-loadQuestion();
+display();
 
 
 
